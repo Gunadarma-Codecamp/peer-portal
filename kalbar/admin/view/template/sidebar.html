@@ -1,0 +1,206 @@
+
+<div id="sidebar-wrapper" class="collapse sidebar-collapse">
+	
+	<div id="search">
+		<form>
+			<input class="form-control input-sm" type="text" name="search" placeholder="Search..." />
+
+			<button type="submit" id="search-btn" class="btn"><i class="fa fa-search"></i></button>
+		</form>		
+	</div> <!-- #search -->
+
+	<nav id="sidebar">		
+		
+		<ul id="main-nav" class="open-active">			
+			
+			
+			<li class="dropdown {if $page.page=='home' || $page.page=='article' || $page.page=='agenda'}active{/if}">
+				<a href="javascript:;">
+					<i class="fa fa-file-text"></i>
+					News
+					<span class="caret"></span>
+				</a>				
+				<ul class="sub-nav">
+					<li>
+						<a href="{$basedomain}home">
+							<i class="fa fa-list-alt"></i> 
+							Artikel
+						</a>
+					</li>
+                    <li>
+						<a href="{$basedomain}agenda">
+							<i class="fa fa-calendar"></i> 
+							Agenda
+						</a>
+					</li>
+				</ul>
+			</li>
+            
+            <li class="button {if $page.page=='banner'}active{/if}">
+				<a href="{$basedomain}banner">
+					<i class="fa fa-file-text"></i>
+					Banner
+				</a>				
+			</li>
+            
+            <li class="button {if $page.page=='headlines'}active{/if}">
+				<a href="{$basedomain}headlines">
+					<i class="fa fa-file-text"></i>
+					Kata Pembuka
+					<!--span class="caret"></span-->
+				</a>				
+			</li>
+            
+            <li class="dropdown {if $page.page=='gallery'}active{/if}">
+				<a href="javascript:;">
+					<i class="fa fa-picture-o"></i>
+					Galeri 
+					<span class="caret"></span>
+				</a>				
+				<ul class="sub-nav">
+                    <li>
+						<a href="{$basedomain}gallery">
+							<i class="fa fa-picture-o"></i> 
+							Galeri Gambar
+						</a>
+					</li>
+                    
+                    <li>
+						<a href="{$basedomain}video">
+							<i class="glyphicon glyphicon-play"></i> 
+							Galeri Video
+						</a>
+					</li>
+				</ul>
+			</li>
+            
+            <li class="dropdown {if $page.page=='about'}active{/if}">
+				<a href="javascript:;">
+					<i class="fa fa-file-text"></i>
+					Tentang Organisasi 
+					<span class="caret"></span>
+				</a>				
+				<ul class="sub-nav">
+				    <li>
+						<a href="{$basedomain}about/profile">
+							<i class="fa fa-list-alt"></i> 
+							Profil
+						</a>
+					</li>
+                    <li>
+						<a href="{$basedomain}about/struktur">
+							<i class="fa fa-list-alt"></i> 
+							Struktur Organisasi
+						</a>
+					</li>
+                    <li>
+						<a href="#">
+							<i class="fa fa-list-alt"></i> 
+							Anggota
+						</a>
+					</li>
+                    <li>
+						<a href="{$basedomain}about/afiliasi">
+							<i class="fa fa-list-alt"></i> 
+							Afiliasi
+						</a>
+					</li>
+				</ul>
+			</li>
+            
+            <li class="dropdown {if $page.page=='direktori'}active{/if}">
+				<a href="javascript:;">
+					<i class="fa fa-file-text"></i>
+					Direktori
+					<span class="caret"></span>
+				</a>				
+				<ul class="sub-nav">
+				    <li>
+						<a href="#">
+							<i class="fa fa-list-alt"></i> 
+							Kepakaran
+						</a>
+					</li>
+                    <li>
+						<a href="{$basedomain}direktori/buahpikir">
+							<i class="fa fa-list-alt"></i> 
+							Buah Pikir
+						</a>
+					</li>
+                    <li>
+						<a href="{$basedomain}direktori/perundangan">
+							<i class="fa fa-list-alt"></i> 
+							Perundang-Undangan
+						</a>
+					</li>
+                    <li>
+						<a href="{$basedomain}direktori/repository">
+							<i class="fa fa-file"></i> 
+							Repository
+						</a>
+					</li>
+				</ul>
+			</li>
+			{*}<li class="dropdown {if $page.page=='kepakaran'}active{/if}">
+				<a href="javascript:;">
+					<i class="fa fa-file-text"></i>
+					Kepakaran
+					<span class="caret"></span>
+				</a>				
+				<ul class="sub-nav">
+				    <li>
+						<a href="{$basedomain}kepakaran/kepakaranCat">
+							<i class="fa fa-list-alt"></i> 
+							Kategori Kepakaran
+						</a>
+					</li>
+                    <li>
+						<a href="#">
+							<i class="fa fa-list-alt"></i> 
+							List Kepakaran
+						</a>
+					</li>
+				</ul>
+			</li>
+			{/*}
+			<li >
+				
+				<a href="{$basedomain}user">
+					<i class="fa fa-list-alt"></i> 
+					Member
+				</a>
+				
+			</li>
+			{*}
+			<li class="dropdown">
+				<a href="javascript:;">
+					<i class="fa fa-picture-o"></i>
+					Upload Frame & Cover 
+					<span class="caret"></span>
+				</a>				
+				<ul class="sub-nav">
+					<li>
+						<a href="{$basedomain}article/upload">
+							<i class="fa fa-facebook"></i> 
+							Facebook
+						</a>
+					</li>
+					<li>
+						<a href="{$basedomain}article/uploadtwt">
+							<i class="fa fa-twitter"></i> 
+							Twitter
+						</a>
+					<li>
+						<a href="{$basedomain}home/frame">
+							<i class="fa fa-list-alt"></i> 
+							Frame List
+						</a>
+					</li>
+				</ul>
+			</li>	
+			{/*}
+		</ul>
+				
+	</nav> <!-- #sidebar -->
+
+</div> <!-- /#sidebar-wrapper -->
