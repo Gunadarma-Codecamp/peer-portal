@@ -1,0 +1,61 @@
+<!-- NAVBAR
+================================================== -->
+  <body class="default">
+    <div class="navbar-wrapper flora-navbar">
+      <div class="container">
+
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <img src="{$basedomain}assets/img/logo/usaid.png" style="width: 120px; margin-top:10px; margin-left:-8px;" class="img-responsive" />
+              <!--<a class="navbar-brand" href="#">Flora <span>Kalbar</span></a>-->
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="{if $page.page=='home'}active{/if}"><a href="{$basedomain}">Home</a></li>
+                <li class="{if $page.page=='about'}active{/if}"><a href="{$basedomain}about">About</a></li>
+                <li class="dropdown {if $page.page=='browse'}active{/if}">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{$basedomain}browse/dataTaxon">Browse by Taxon</a></li>
+                    <li><a href="{$basedomain}browse/dataLocation">Browse by Location</a></li>
+                    <li><a href="{$basedomain}browse/dataPerson">Browse by Person</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown {if $page.page=='workflow'}active{/if}">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Workflow <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{$appdomain}upload" target="_blank">Insert Batch Upload</a></li>
+                    <li><a href="{$appdomain}onebyone" target="_blank">Insert One by One</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown {if $page.page=='repository'}active{/if}">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Digital Repository <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{$basedomain}repo/reference">References</a></li>
+                    <li><a href="{$basedomain}repo/links">Links</a></li>
+                    <li><a href="{$basedomain}repo/workshop">Workshop Material</a></li>
+                  </ul>
+                </li>
+                <li class="{if $page.page=='sosnet'}active{/if}"><a href="#">Social Network</a></li>
+                <li class="{if $page.page=='news'}active{/if}"><a href="{$basedomain}news">News</a></li>
+                <li class="{if $page.page=='gallery'}active{/if}"><a href="{$basedomain}gallery">Gallery</a></li>
+                
+              </ul>
+              <div class="pull-right">
+                  <a href="{$appdomain}register" target="_blank" class="btn btn-default navbar-btn flora-btn btn_signup">Signup</a>
+                  <a href="{$appdomain}login" target="_blank" class="btn btn-default navbar-btn flora-btn btn_login">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+

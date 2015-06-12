@@ -1,0 +1,12 @@
+kalbar/config/config.php
+kalbar/config/access.php
+kalbar/.htaccess
+kalbar/tmp/*
+kalbar/public_assets/*
+kalbar/libs/smarty/*
+kalbar/libs/excel/*
+kalbar/logs/*
+kalbar/cache/*
+kalbar/plugin/*
+kalbar/admin/cache/*
+kalbar/admin/tmp/*
