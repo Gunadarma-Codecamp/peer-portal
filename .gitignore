@@ -9,4 +9,5 @@ kalbar/logs/*
 kalbar/cache/*
 kalbar/plugin/*
 kalbar/admin/cache/*
+kalbar/admin/config/config.php
 kalbar/admin/tmp/*
