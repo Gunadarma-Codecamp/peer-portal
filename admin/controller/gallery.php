@@ -46,20 +46,43 @@ class gallery extends Controller {
 	public function gallerydel(){
 
 		global $CONFIG;
+		$path = 'gallery/images';
+
+		//Delete file photos
+		foreach($_POST['ids'] as $otherid){
+            $getfile = $this->gallery->get_image_otherid($otherid);
+            foreach ($getfile as $image){
+            	if(isset($image['content'])){
+            		deleteFile($image['content'],$path);
+            	}
+	        } 
+        }
+
 
 		$data = $this->gallery->gallery_del($_POST['ids']);
 		
-		echo "<script>alert('Data berhasil dihapus');window.location.href='".$CONFIG['admin']['base_url']."gallery'</script>";
+		echo "<script>alert('Album successfully deleted');window.location.href='".$CONFIG['admin']['base_url']."gallery'</script>";
 		
 	}
 	public function imagedel(){
 
 		global $CONFIG;
-		$albumid=$_POST['album'];
+		$path = 'gallery/images';
         
-		$data = $this->gallery->image_del($_POST['ids']);
+        foreach($_POST['ids'] as $id){
+            $getfile = $this->gallery->get_image_id($id);
+            $delImage[] = $getfile['content'];
+        }
+        
+        foreach ($delImage as $image){
+            deleteFile($image,$path);
+        } 
+
 		
-		echo "<script>alert('Data berhasil dihapus');window.location.href='".$CONFIG['admin']['base_url']."gallery/album/?album=".$albumid."'</script>";
+		$albumid=$_POST['album'];
+        $data = $this->gallery->image_del($_POST['ids']);
+		
+		echo "<script>alert('Photo successfully deleted');window.location.href='".$CONFIG['admin']['base_url']."gallery/album/?album=".$albumid."'</script>";
 		
 	}
 	public function addImages(){
@@ -111,7 +134,7 @@ class gallery extends Controller {
 			}
         }
         
-        echo "<script>alert('Data berhasil di simpan');window.location.href='".$redirect."'</script>";
+        echo "<script>alert('Photo successfully uploaded');window.location.href='".$redirect."'</script>";
         }
 	}
 }

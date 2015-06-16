@@ -129,12 +129,12 @@ class marticle extends Database {
 		foreach ($id as $key => $value) {
 			if($action == 'delete'){
 				$data = "SELECT `image`,`categoryid` FROM {$this->prefix}_news_content WHERE id = '{$value}'";
-				$getData = $this->fetch($data,1);
-				if(!empty($getData['0']['image'])){
-					if($getData['0']['categoryid'] == '1'){$path = 'news';}
+				$getData = $this->fetch($data,0);
+				if(!empty($getData['image'])){
+					if($getData['categoryid'] == '1'){$path = 'news';}
 					
 					//Delete Image
-        			unlink($CONFIG['admin']['upload_path'].$path.'/'.$getData['0']['image']);
+        			unlink($CONFIG['admin']['upload_path'].$path.'/'.$getData['image']);
 					//echo $CONFIG['admin']['upload_path'].'/public_assets/'.$path.'/'.$getData['0']['image'];
 				}
 				//pr($getData);exit;
