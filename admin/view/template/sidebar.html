@@ -12,28 +12,12 @@
 	<nav id="sidebar">		
 		
 		<ul id="main-nav" class="open-active">			
-			
-			
-			<li class="dropdown {if $page.page=='home' || $page.page=='article' || $page.page=='agenda'}active{/if}">
-				<a href="javascript:;">
+
+			<li class="button {if $page.page=='home' || $page.page=='article'}active{/if}">
+				<a href="{$basedomain}home">
 					<i class="fa fa-file-text"></i>
 					News
-					<span class="caret"></span>
 				</a>				
-				<ul class="sub-nav">
-					<li>
-						<a href="{$basedomain}home">
-							<i class="fa fa-list-alt"></i> 
-							Artikel
-						</a>
-					</li>
-                    <li>
-						<a href="{$basedomain}agenda">
-							<i class="fa fa-calendar"></i> 
-							Agenda
-						</a>
-					</li>
-				</ul>
 			</li>
             
             <li class="button {if $page.page=='banner'}active{/if}">
@@ -43,32 +27,24 @@
 				</a>				
 			</li>
             
-            <li class="button {if $page.page=='headlines'}active{/if}">
-				<a href="{$basedomain}headlines">
-					<i class="fa fa-file-text"></i>
-					Kata Pembuka
-					<!--span class="caret"></span-->
-				</a>				
-			</li>
-            
             <li class="dropdown {if $page.page=='gallery'}active{/if}">
 				<a href="javascript:;">
 					<i class="fa fa-picture-o"></i>
-					Galeri 
+					Gallery
 					<span class="caret"></span>
 				</a>				
 				<ul class="sub-nav">
                     <li>
 						<a href="{$basedomain}gallery">
 							<i class="fa fa-picture-o"></i> 
-							Galeri Gambar
+							Photo
 						</a>
 					</li>
                     
                     <li>
 						<a href="{$basedomain}video">
 							<i class="glyphicon glyphicon-play"></i> 
-							Galeri Video
+							Video
 						</a>
 					</li>
 				</ul>

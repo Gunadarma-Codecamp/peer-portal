@@ -1,7 +1,7 @@
 <?php
 class mbanner extends Database {
 	
-	var $prefix = "api";
+	var $prefix = "floraINA";
 	function banner_inp($data)
 	{
 		

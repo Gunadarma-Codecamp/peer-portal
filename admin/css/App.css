@@ -1,6 +1,6 @@
 body {
   color: #444;
-  font: 13px/1.7em "Open Sans", "trebuchet ms", arial, sans-serif;
+  font: 13px/1.7em "trebuchet ms", arial, sans-serif;
   background: #666666 url(../images/layout/sidebar-bg.png) repeat-y 0 0;
 }
 h1,
@@ -11,7 +11,7 @@ h5,
 h6,
 p {
   margin-top: 0;
-  font-family: 'Open Sans', 'trebuchet ms', arial, sans-serif;
+  font-family: 'trebuchet ms', arial, sans-serif;
 }
 ul.icons-list {
   padding: 0;
