@@ -1,7 +1,7 @@
 <?php
 class mvideo extends Database {
 	
-	var $prefix = "api";
+	var $prefix = "floraINA";
 	function video_inp($data)
 	{
 		
@@ -99,23 +99,6 @@ class mvideo extends Database {
     
     		$result['username'] = $username['username'];
 		}
-		return $result;
-	}
-	
-	function get_video_trash($categoryid=null)
-	{
-		$query = "SELECT * FROM {$this->prefix}_video WHERE n_status = '2' AND categoryid = '{$categoryid}' ORDER BY created_date DESC";
-		
-		$result = $this->fetch($query,1);
-
-		foreach ($result as $key => $value) {
-			$query = "SELECT username FROM admin_member WHERE id={$value['authorid']} LIMIT 1";
-
-			$username = $this->fetch($query,0);
-
-			$result[$key]['username'] = $username['username'];
-		}
-		
 		return $result;
 	}
 	

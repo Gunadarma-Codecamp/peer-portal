@@ -127,7 +127,7 @@ class video extends Controller {
 				   	
 			   }catch (Exception $e){}
             
-                $message = 'Save data succeed';            
+                $message = 'Save video succeed';            
                 
                 echo "<script>alert('".$message."');window.location.href='".$redirect."'</script>";
             }
@@ -141,17 +141,19 @@ class video extends Controller {
         
         foreach($_POST['ids'] as $id){
             $getfile = $this->models->get_video_id($id);
-            $delImage[] = $getfile['image'];
+            $delVideo[] = $getfile['video'];
         }
         
-        foreach ($delImage as $image){
-            deleteFile($image,$path);
+        foreach ($delVideo as $video){
+        	if(isset($video)){
+        		deleteFile($video,$path);
+        	}
         }              
         
 		$data = $this->models->video_del($_POST['ids']);
 		
         $redirect = $CONFIG['admin']['base_url'].'video';
-        $message = 'Data has been deleted';
+        $message = 'Video has been deleted';
         
 		echo "<script>alert('".$message."');window.location.href='".$redirect."'</script>";
 		
