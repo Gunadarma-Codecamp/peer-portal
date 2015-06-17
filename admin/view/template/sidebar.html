@@ -49,39 +49,12 @@
 					</li>
 				</ul>
 			</li>
-            
-            <li class="dropdown {if $page.page=='about'}active{/if}">
-				<a href="javascript:;">
+
+			<li class="button {if $page.page=='site'}active{/if}">
+				<a href="{$basedomain}site">
 					<i class="fa fa-file-text"></i>
-					Tentang Organisasi 
-					<span class="caret"></span>
+					Site Management
 				</a>				
-				<ul class="sub-nav">
-				    <li>
-						<a href="{$basedomain}about/profile">
-							<i class="fa fa-list-alt"></i> 
-							Profil
-						</a>
-					</li>
-                    <li>
-						<a href="{$basedomain}about/struktur">
-							<i class="fa fa-list-alt"></i> 
-							Struktur Organisasi
-						</a>
-					</li>
-                    <li>
-						<a href="#">
-							<i class="fa fa-list-alt"></i> 
-							Anggota
-						</a>
-					</li>
-                    <li>
-						<a href="{$basedomain}about/afiliasi">
-							<i class="fa fa-list-alt"></i> 
-							Afiliasi
-						</a>
-					</li>
-				</ul>
 			</li>
             
             <li class="dropdown {if $page.page=='direktori'}active{/if}">
