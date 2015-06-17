@@ -50,15 +50,6 @@ class home extends Controller {
 		return $this->loadView('home');
 
 	}
-
-	public function frame(){
-
-		$data = $this->models->get_frameList();
-		// pr($data);
-		$this->view->assign('data',$data);
-
-		return $this->loadView('listFrame');
-	}
 	
 	function ajax()
 	{
