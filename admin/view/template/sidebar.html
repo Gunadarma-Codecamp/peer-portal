@@ -64,19 +64,42 @@
 						</a>
 					</li>
                     <li>
-						<a href="site/content/?cat=3&&type=1">
+						<a href="{$basedomain}site/content/?cat=3&&type=1">
 							<i class="fa fa-list-alt"></i> 
 							Workflow - Batch Upload
 						</a>
 					</li>
 					<li>
-						<a href="site/content/?cat=3&&type=2">
+						<a href="{$basedomain}site/content/?cat=3&&type=2">
 							<i class="fa fa-list-alt"></i> 
 							Workflow - One by One
 						</a>
 					</li>
 				</ul>
 			</li>
+
+			<li class="dropdown {if $page.page=='digirepo'}active{/if}">
+				<a href="javascript:;">
+					<i class="fa fa-file-text"></i>
+					Digital Repository
+					<span class="caret"></span>
+				</a>				
+				<ul class="sub-nav">
+				    <li>
+						<a href="{$basedomain}digirepo">
+							<i class="fa fa-list-alt"></i> 
+							Repository
+						</a>
+					</li>
+                    <li>
+						<a href="{$basedomain}digirepo/links">
+							<i class="fa fa-list-alt"></i> 
+							Links
+						</a>
+					</li>
+				</ul>
+			</li>
+
 		</ul>
 				
 	</nav> <!-- #sidebar -->
