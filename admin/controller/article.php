@@ -83,6 +83,9 @@ class article extends Controller {
 							
 								if($x['categoryid'] == '9'){
 									$path_upload = 'gallery/images';
+								}
+								elseif($x['categoryid'] == '4'){
+									$path_upload = 'digirepo/linksIcon';
 								}else{
 									$path_upload = 'news';
 								}
@@ -104,26 +107,18 @@ class article extends Controller {
             if(isset($x['categoryid'])){
                 if($x['categoryid'] == '1'){
                     $redirect = $CONFIG['admin']['base_url'].'home';
-                }elseif($x['categoryid']=='2'){
-                    $redirect = $CONFIG['admin']['base_url'].'agenda';
-                }elseif($x['categoryid']=='3'){
-                    if($x['articletype']=='1'){
-                        $redirect = $CONFIG['admin']['base_url'].'about/profile';
-                    }elseif($x['articletype']=='2'){
-                        $redirect = $CONFIG['admin']['base_url'].'about/struktur';
-                    }
-                }elseif($x['categoryid']=='9'){
+                }elseif($x['categoryid']=='4'){
+					$redirect = $CONFIG['admin']['base_url'].'digirepo/links';
+				}elseif($x['categoryid']=='9'){
 					if($x['articletype']=='1'){
                         $redirect = $CONFIG['admin']['base_url'].'gallery';
                     }elseif($x['articletype']=='2'){
                         $redirect = $CONFIG['admin']['base_url'].'gallery';
                     }
-				}elseif($x['categoryid']=='8'){
-					$redirect = $CONFIG['admin']['base_url'].'direktori/listCategory';
 				}
             }
             
-            echo "<script>alert('Data berhasil di simpan');window.location.href='".$redirect."'</script>";
+            echo "<script>alert('Data successfully saved');window.location.href='".$redirect."'</script>";
             }
 	}
 	
@@ -147,8 +142,6 @@ class article extends Controller {
                 $redirect = $CONFIG['admin']['base_url'].'agenda';
             }elseif($post['categoryid']=='9'){
 				$redirect = $CONFIG['admin']['base_url'].'gallery';
-			}elseif($post['categoryid']=='8'){
-				$redirect = $CONFIG['admin']['base_url'].'direktori/listCategory';
 			}
         }
 		echo "<script>alert('".$message."');window.location.href='".$redirect."'</script>";

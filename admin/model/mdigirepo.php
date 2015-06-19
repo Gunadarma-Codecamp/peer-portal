@@ -152,6 +152,49 @@ class mdigirepo extends Database {
 		}
 
 		return true;
+	}
+
+	function get_links($categoryid=null,$type=1)
+	{
+		$query = "SELECT * FROM {$this->prefix}_news_content WHERE n_status = '1' AND categoryid = '{$categoryid}' OR n_status = '0' AND categoryid = '{$categoryid}' ORDER BY created_date DESC";
+		
+		$result = $this->fetch($query,1);
+
+		foreach ($result as $key => $value) {
+			$query = "SELECT username FROM admin_member WHERE id={$value['authorid']} LIMIT 1";
+
+			$username = $this->fetch($query,0);
+
+			$result[$key]['username'] = $username['username'];
+		}
+		
+		return $result;
+	}
+
+	function get_link_id($data)
+	{
+		$query = "SELECT * FROM {$this->prefix}_news_content WHERE id= {$data} LIMIT 1";
+		
+		$result = $this->fetch($query,0);
+
+		//if($result['posted_date'] != '') $result['posted_date'] = dateFormat($result['posted_date'],'dd-mm-yyyy');
+		($result['n_status'] == 1) ? $result['n_status'] = 'checked' : $result['n_status'] = '';
+
+		return $result;
+	}
+
+	function link_del($id)
+	{
+		//pr($id);
+		foreach ($id as $key => $value) {
+			
+			$query = "DELETE FROM {$this->prefix}_news_content WHERE id = '{$value}'";
+		
+			$result = $this->query($query);
+		
+		}
+
+		return true;
 		
 	}
 }

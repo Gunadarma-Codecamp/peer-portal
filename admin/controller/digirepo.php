@@ -149,6 +149,77 @@ class digirepo extends Controller {
         
 		echo "<script>alert('Data successfully deleted');window.location.href='".$redirect."'</script>";
     }
+
+    public function links(){
+		$this->view->assign('active','active');
+		$data = $this->mdigirepo->get_links(4);
+
+		if ($data){
+			foreach ($data as $key => $val){
+
+				$data[$key]['created_date'] = dateFormat($val['created_date'],'article');
+
+				$data[$key]['posted_date'] = dateFormat($val['posted_date'],'article');
+
+				if($val['n_status'] == '1') {
+					$data[$key]['n_status'] = 'Publish';
+					$data[$key]['status_color'] = 'green';
+				} else {
+					$data[$key]['n_status'] = 'Unpublish';
+					$data[$key]['status_color'] = 'red'; 
+				}
+			}
+		}
+		
+		// pr($data);exit;
+		$this->view->assign('data',$data);
+
+		return $this->loadView('digirepo/links');
+	}
+
+	public function addlink(){
+		
+		$this->view->assign('active','active');
+
+		if(isset($_GET['id']))
+		{
+			$data = $this->mdigirepo->get_link_id($_GET['id']);
+            
+            if($data){
+                $data['created_date'] = dateFormat($data['created_date'],'dd-mm-yyyy');
+                $data['posted_date'] = dateFormat($data['posted_date'],'dd-mm-yyyy');
+                $data['expired_date'] = dateFormat($data['expired_date'],'dd-mm-yyyy');
+            }
+            
+			$this->view->assign('data',$data);
+		} 
+
+		$this->view->assign('admin',$this->admin['admin']);
+		return $this->loadView('digirepo/inputlink');
+	}
+
+	public function linkdel(){
+
+		global $CONFIG;
+        $path = 'digirepo/linksIcon';
+        
+        foreach($_POST['ids'] as $id){
+            $getfile = $this->mdigirepo->get_link_id($id);
+            $delImage[] = $getfile['image'];
+        }
+        
+        foreach ($delImage as $image){
+            deleteFile($image,$path);
+        }              
+        
+		$data = $this->mdigirepo->link_del($_POST['ids']);
+		
+        $redirect = $CONFIG['admin']['base_url'].'digirepo/links';
+        $message = 'Link has been deleted';
+        
+		echo "<script>alert('".$message."');window.location.href='".$redirect."'</script>";
+		
+	}
     
 }
 
