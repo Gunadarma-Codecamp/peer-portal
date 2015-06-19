@@ -103,7 +103,7 @@ class site extends Controller {
                 if($x['categoryid'] == '1'){
                     $redirect = $CONFIG['admin']['base_url'].'home';
                 }elseif($x['categoryid']=='2'){
-                    $redirect = $CONFIG['admin']['base_url'].'site/content/?cat=2';
+                    $redirect = $CONFIG['admin']['base_url'].'site/content/?cat=2&&type='.$_POST["articletype"];
                 }elseif($x['categoryid']=='3'){
                     $redirect = $CONFIG['admin']['base_url'].'site/content/?cat=3&&type='.$_POST["articletype"];
                 }elseif($x['categoryid']=='4'){
