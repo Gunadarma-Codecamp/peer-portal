@@ -4,17 +4,19 @@
         
         <div class="row" style="margin: 0;">
             <div class="col-md-3" style="margin-bottom: 10px;">
+                {foreach $data as $get}
                 <div class="flora-album">
-                <a href="{$basedomain}gallery/view" title="Banana">
-                    <img src="{$basedomain}public_assets/gallery/thumbs/1.JPG" alt="Banana">
+                <a href="{$basedomain}gallery/view/?id={$get.id}" title="{$get.title}">
+                    <img src="{$get.file}" alt="{$get.title}">
                 </a>
                 <div class="caption_album">
-                    <a href="{$basedomain}gallery/view">Nama Album</a>
-                    <p class="text-muted">100 photos</p>
+                    <a href="{$basedomain}gallery/view">{$get.title}</a>
+                    <p class="text-muted">{$get.countPhoto} photos</p>
                 </div>
                 </div>
+                {/foreach}
             </div>
-            
+            {*}
             <div class="col-md-3" style="margin-bottom: 10px;">
                 <div class="flora-album">
                 <a href="{$basedomain}gallery/view" title="Banana">
@@ -26,42 +28,7 @@
                 </div>
                 </div>
             </div>
-            
-            <div class="col-md-3" style="margin-bottom: 10px;">
-                <div class="flora-album">
-                <a href="{$basedomain}gallery/view" title="Banana">
-                    <img src="{$basedomain}public_assets/gallery/thumbs/1.JPG" alt="Banana">
-                </a>
-                <div class="caption_album">
-                    <a href="{$basedomain}gallery/view">Nama Album</a>
-                    <p class="text-muted">100 photos</p>
-                </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3" style="margin-bottom: 10px;">
-                <div class="flora-album">
-                <a href="{$basedomain}gallery/view" title="Banana">
-                    <img src="{$basedomain}public_assets/gallery/thumbs/1.JPG" alt="Banana">
-                </a>
-                <div class="caption_album">
-                    <a href="{$basedomain}gallery/view">Nama Album</a>
-                    <p class="text-muted">100 photos</p>
-                </div>
-                </div>
-            </div>
-            
-            <div class="col-md-3" style="margin-bottom: 10px;">
-                <div class="flora-album">
-                <a href="{$basedomain}gallery/view" title="Banana">
-                    <img src="{$basedomain}public_assets/gallery/thumbs/1.JPG" alt="Banana">
-                </a>
-                <div class="caption_album">
-                    <a href="{$basedomain}gallery/view">Nama Album</a>
-                    <p class="text-muted">100 photos</p>
-                </div>
-                </div>
-            </div>
+            {/*}
         </div>
 
     </div>

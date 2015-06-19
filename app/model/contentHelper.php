@@ -28,7 +28,19 @@ class contentHelper extends Database {
 		$res = $this->fetch($sql);
 		if ($res) return $res;
 		return false;
-		
+	}
+
+	function getData($condition,$select,$table,$where){
+		if($condition == TRUE){
+			$sql = "SELECT {$select} FROM {$table} WHERE {$where}";
+		}
+		else{
+			$sql = "SELECT {$select} FROM {$table}";
+		}
+		//pr($sql);
+		$res = $this->fetch($sql,1,1);
+		if ($res) return $res;
+		return false;
 	}
 	
 	

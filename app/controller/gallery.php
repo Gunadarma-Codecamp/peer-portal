@@ -16,14 +16,41 @@ class gallery extends Controller {
 	
 	function loadmodule()
 	{
-        //$this->models = $this->loadModel('frontend');
+        $this->models = $this->loadModel('contentHelper');
 	}
 	
 	function index(){
+		$where = "categoryid = '9'";
+		$data = $this->models->getData(TRUE,'*','floraINA_news_content',$where);
+		//pr($data);
+
+		foreach ($data as $key => $value) {
+			//get Count
+			$whereId = "otherid = '".$data[$key]['id']."'";
+			$repo = $this->models->getData(TRUE,'*','floraINA_news_content_repo',$whereId);
+			$data[$key]['countPhoto'] = count($repo);
+		}
+
+		$this->view->assign('data',$data);
+		
     	return $this->loadView('gallery/index');
     }
     
     function view(){
+    	$id = $_GET['id'];
+
+    	$where = "otherid = ".$id;
+		$data = $this->models->getData(TRUE,'*','floraINA_news_content_repo',$where);
+
+		foreach ($data as $key => $value) {
+			//get Count
+			$whereId = "id = '".$id."'";
+			$title = $this->models->getData(TRUE,'title','floraINA_news_content',$whereId);
+			$title = $title['0']['title'];
+		}
+
+		$this->view->assign('data',$data);
+		$this->view->assign('title',$title);
         return $this->loadView('gallery/image_view');
     }
 }

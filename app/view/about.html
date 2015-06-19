@@ -1,10 +1,8 @@
 <div class="container flora-container">
     <div class="flora-content">
-        <h3>Citizen Science Solution For National Biodiversity Data Needs</h3>
-        <h5>Developing a Plant checklist for West Kalimantan, Indonesia.</h5>
-        <p>Software and Tools developments. Data acquisition and collection tools, social network, research log using mobile devices and digital reference library that has interoperability feature.
-Capacity building. Intensive training courses (2 locations), and CodeCamp for botanists and computer scientists.
-Expedition. 15 days expeditions and data will be uploaded and integrated directly. Participants will be equipped with digital camera, netbook and wireless internet connection.
-Data match and validation. Photographs and data will be matched by technicians at the national herbarium via the developed system. Much of Indonesia's biodivesrity may be lost forever before it is ever recorded</p>
+    	{foreach $data as $get}
+	        <h3>{$get.brief}</h3>
+	        {$get.content}
+        {/foreach}
     </div>
 </div>
