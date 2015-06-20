@@ -20,14 +20,17 @@ class about extends Controller {
 	}
 	
 	function index(){
-		$where = "categoryid = '2' AND articleType = '0'";
+		$where = "categoryid = '2' AND articleType = '0' AND n_status = '1'";
 		$data = $this->models->getData(TRUE,'*','floraINA_news_content',$where);
 		//pr($data);
-		foreach ($data as $key => $value) {
-			$data[$key]['content'] = html_entity_decode($value['content'],ENT_QUOTES, 'UTF-8');
+		if($data){
+			foreach ($data as $key => $value) {
+				$data[$key]['content'] = html_entity_decode($value['content'],ENT_QUOTES, 'UTF-8');
+			}
+			
+			$this->view->assign('data',$data);
 		}
 		
-		$this->view->assign('data',$data);
     	return $this->loadView('about');
     }
 }

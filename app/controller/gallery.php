@@ -20,18 +20,20 @@ class gallery extends Controller {
 	}
 	
 	function index(){
-		$where = "categoryid = '9'";
+		$where = "categoryid = '9' AND n_status = '1'";
 		$data = $this->models->getData(TRUE,'*','floraINA_news_content',$where);
 		//pr($data);
 
-		foreach ($data as $key => $value) {
-			//get Count
-			$whereId = "otherid = '".$data[$key]['id']."'";
-			$repo = $this->models->getData(TRUE,'*','floraINA_news_content_repo',$whereId);
-			$data[$key]['countPhoto'] = count($repo);
-		}
+		if($data){
+			foreach ($data as $key => $value) {
+				//get Count
+				$whereId = "otherid = '".$data[$key]['id']."'";
+				$repo = $this->models->getData(TRUE,'*','floraINA_news_content_repo',$whereId);
+				$data[$key]['countPhoto'] = count($repo);
+			}
 
-		$this->view->assign('data',$data);
+			$this->view->assign('data',$data);
+		}
 		
     	return $this->loadView('gallery/index');
     }
@@ -42,15 +44,18 @@ class gallery extends Controller {
     	$where = "otherid = ".$id;
 		$data = $this->models->getData(TRUE,'*','floraINA_news_content_repo',$where);
 
-		foreach ($data as $key => $value) {
-			//get Count
-			$whereId = "id = '".$id."'";
-			$title = $this->models->getData(TRUE,'title','floraINA_news_content',$whereId);
-			$title = $title['0']['title'];
+		if($data){
+			foreach ($data as $key => $value) {
+				//get Count
+				$whereId = "id = '".$id."'";
+				$title = $this->models->getData(TRUE,'title','floraINA_news_content',$whereId);
+				$title = $title['0']['title'];
+			}
+
+			$this->view->assign('data',$data);
+			$this->view->assign('title',$title);
 		}
 
-		$this->view->assign('data',$data);
-		$this->view->assign('title',$title);
         return $this->loadView('gallery/image_view');
     }
 }
