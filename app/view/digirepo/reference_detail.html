@@ -1,0 +1,29 @@
+<div class="container flora-container">
+    <div class="flora-content">
+        <div class="row">
+            {foreach $data as $get}
+            <div class="col-md-8">
+                <h4>{$get.title}</h4>
+                <hr class="flora-separator" />
+                
+                <p class="ref-title_content">DESCRIPTION</p>
+                {$get.content}
+
+                <p class="ref-title_content">AUTHOR(S)</p>
+                <p>{$get.source}</p>
+            </div>
+            
+            <div class="col-md-4 text-center" style="margin-top: 10px;">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <a href="{$get.files}">
+                        <img src="{$get.file_icon}" class="img-responsive" style="margin-bottom: 10px;" />
+                        Download ({$get.filesize})
+                    </a>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</div>

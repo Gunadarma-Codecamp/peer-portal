@@ -10,7 +10,7 @@ $ROUTES = array(
         	'about',
                 'browse',
                 'workflow',
-                'repo',
+                'digirepo',
                 'gallery',
                 'news',
                 'activate'               
