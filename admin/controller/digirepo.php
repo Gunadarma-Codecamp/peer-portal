@@ -93,10 +93,10 @@ class digirepo extends Controller {
 						
                         if($x['action'] == 'update') deleteFile($x['filename'],$path_upload);
 						$image = uploadFile('file_image',$path_upload);
-                        
 						$x['files'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
                         $x['realname'] = $image['real_name'];
 						$x['filename'] = $image['full_name'];
+						$x['filesize'] = $_FILES['file_image']['size'];
                         
 					}
                     

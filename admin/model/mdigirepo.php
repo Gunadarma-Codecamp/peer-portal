@@ -72,14 +72,14 @@ class mdigirepo extends Database {
                             title, category, source,
                             authorid, realname,
                             created_date, n_status, files,
-                            filename, content, icon,
+                            filename, filesize, content, icon,
                             file_icon
                         )
 					VALUES
 						('".$data['title']."','".$data['category']."','".$data['source']."'
                         ,'".$data['authorid']."','".$data['realname']."'
                         ,'".$data['created_date']."','".$data['n_status']."','".$data['files']."'
-                        ,'".$data['filename']."','".$data['content']."','".$data['icon']."'
+                        ,'".$data['filename']."','".$data['filesize']."','".$data['content']."','".$data['icon']."'
                         ,'".$data['file_icon']."')";
                         //pr($query);exit;
 
@@ -94,6 +94,7 @@ class mdigirepo extends Database {
                             authorid = '{$data['authorid']}',
 							files = '{$data['files']}',
                             filename = '{$data['filename']}',
+                            filesize = '{$data['filesize']}',
                             realname = '{$data['realname']}',
                             
                             icon = '{$data['icon']}',
