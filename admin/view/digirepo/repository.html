@@ -72,9 +72,9 @@
                                     <img class="img-responsive thumbnail" src="{$var.file_icon}" style="max-width: 100px;max-height: 120px;" /><br />
                                     {$var.realname}
                                     </td>
-									<td>{$var.category}</td>
+									<td>{if $var.category eq '1'}References{elseif $var.category eq '2'}Workshop Material{/if}</td>
 									<td>{$var.username}</td>
-                                    <td style="color:{$var.status_color}">{$var.status}</td>
+                                    <td style="color:{$var.status_color}">{$var.n_status}</td>
                                     <td><a target="_blank" href="https://docs.google.com/viewer?url={$var.files}"><button type="button" class="btn btn-default btn-sm" >View File</button></a>
                                     </td>
 								</tr>

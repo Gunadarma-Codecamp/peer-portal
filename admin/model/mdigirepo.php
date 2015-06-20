@@ -19,7 +19,7 @@ class mdigirepo extends Database {
 		if (!$table and empty($data)) return false;
 
 		$return = array();
-		$return['status'] = false;
+		$return['n_status'] = false;
         
         if(!empty($data['created_date'])) $data['created_date'] = date("Y-m-d H:i:s",strtotime($data['created_date']));
         if(!empty($data['expired_date'])) $data['expired_date'] = date("Y-m-d H:i:s",strtotime($data['expired_date']));
@@ -47,7 +47,7 @@ class mdigirepo extends Database {
         
 		if ($res){
 			$return['lastid'] = $this->insert_id();
-			$return['status'] = true;
+			$return['n_status'] = true;
 		}
 		return $return;
 	}
@@ -71,14 +71,14 @@ class mdigirepo extends Database {
 						{$this->prefix}_{$table} (
                             title, category, source,
                             authorid, realname,
-                            created_date, status, files,
+                            created_date, n_status, files,
                             filename, content, icon,
                             file_icon
                         )
 					VALUES
 						('".$data['title']."','".$data['category']."','".$data['source']."'
                         ,'".$data['authorid']."','".$data['realname']."'
-                        ,'".$data['created_date']."','".$data['status']."','".$data['files']."'
+                        ,'".$data['created_date']."','".$data['n_status']."','".$data['files']."'
                         ,'".$data['filename']."','".$data['content']."','".$data['icon']."'
                         ,'".$data['file_icon']."')";
                         //pr($query);exit;
@@ -100,7 +100,7 @@ class mdigirepo extends Database {
                             file_icon = '{$data['file_icon']}',
                             
                             created_date = '{$data['created_date']}',
-							status = {$data['status']}
+							n_status = {$data['n_status']}
 						WHERE
 							id = '{$data['id']}'";
 
@@ -113,7 +113,7 @@ class mdigirepo extends Database {
     
     function get_repo($status=null)
 	{
-		$query = "SELECT * FROM {$this->prefix}_repo WHERE status != '2' ORDER BY created_date DESC";
+		$query = "SELECT * FROM {$this->prefix}_digirepo WHERE n_status != '2' ORDER BY created_date DESC";
 		
 		$result = $this->fetch($query,1);
         
@@ -130,12 +130,12 @@ class mdigirepo extends Database {
     
     function get_repo_id($id)
 	{
-		$query = "SELECT * FROM {$this->prefix}_repo WHERE id= {$id}";
+		$query = "SELECT * FROM {$this->prefix}_digirepo WHERE id= {$id}";
 		
 		$result = $this->fetch($query,0);
 
 		//if($result['posted_date'] != '') $result['posted_date'] = dateFormat($result['posted_date'],'dd-mm-yyyy');
-		($result['status'] == 1) ? $result['status'] = 'checked' : $result['status'] = '';
+		($result['n_status'] == 1) ? $result['n_status'] = 'checked' : $result['n_status'] = '';
 
 		return $result;
 	}
@@ -145,7 +145,7 @@ class mdigirepo extends Database {
 		//pr($id);
 		foreach ($id as $key => $value) {
 			
-			$query = "DELETE FROM {$this->prefix}_repo WHERE id = '{$value}'";
+			$query = "DELETE FROM {$this->prefix}_digirepo WHERE id = '{$value}'";
 		
 			$result = $this->query($query);
 		

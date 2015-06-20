@@ -30,11 +30,11 @@ class digirepo extends Controller {
 
 				$data[$key]['created_date'] = dateFormat($val['created_date'],'article');
 
-				if($val['status'] == '1') {
-					$data[$key]['status'] = 'Publish';
+				if($val['n_status'] == '1') {
+					$data[$key]['n_status'] = 'Publish';
 					$data[$key]['status_color'] = 'green';
 				} else {
-					$data[$key]['status'] = 'Unpublish';
+					$data[$key]['n_status'] = 'Unpublish';
 					$data[$key]['status_color'] = 'red'; 
 				}
 			}
@@ -66,10 +66,10 @@ class digirepo extends Controller {
 
 		global $CONFIG;
         
-        if(isset($_POST['status'])){
-			if($_POST['status']=='on') $_POST['status']=1;
+        if(isset($_POST['n_status'])){
+			if($_POST['n_status']=='on') $_POST['n_status']=1;
 		} else {
-			$_POST['status']=0;
+			$_POST['n_status']=0;
 		}
         
 		if(isset($_POST)){
@@ -112,7 +112,7 @@ class digirepo extends Controller {
 						$x['icon'] = $icon['full_name'];
 					}
                     //pr($x);exit;
-					$data = $this->mdigirepo->repoInp('repo',$x);
+					$data = $this->mdigirepo->repoInp('digirepo',$x);
 					
 		   		}
 			   	
