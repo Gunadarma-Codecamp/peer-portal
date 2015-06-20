@@ -144,3 +144,47 @@ body {
     .mini-carousel .item{
         height: 338px;}
 }
+
+
+/* CAROUSEL INDEX */
+@media screen and (min-width: 768px){
+  .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-prev, .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 20px;
+  }
+  .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev{
+    margin-left: -16px;
+  }
+  .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next{
+    margin-right: -14px;
+  }
+}
+.carousel-control{
+    position: absolute;
+    top: 40%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 25px;
+    color: #ffffff;
+    text-align: center;
+    background: #222222;
+    border: 3px solid #ffffff;
+    -webkit-border-radius: 23px;
+    -moz-border-radius: 23px;
+    border-radius: 23px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev{
+  margin-top: -10px;
+  margin-left: -12px;
+}
+.carousel-control .glyphicon-chevron-right, .carousel-control .icon-next{
+  margin-top: -10px;
+  margin-right: -9px;
+}

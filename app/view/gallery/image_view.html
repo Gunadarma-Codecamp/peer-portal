@@ -5,11 +5,13 @@
         <h3>{$title}</h3>
         
         
-        <div id="links">
+        <div class="row" id="links">
             {foreach $data as $get}
-            <a href="{$get.files}" title="{$title}" data-gallery>
-                <img src="{$get.files}" class="flora-gallery" style="max-width: 200px;">
-            </a>
+            <div class="col-md-3 col-xs-6">
+                <a href="{$get.files}" title="{$title}" data-gallery>
+                    <img src="{$get.files}" class="flora-gallery imageClip">
+                </a>
+            </div>
             {/foreach}
             {*}
             <a href="{$basedomain}public_assets/gallery/images/2.JPG" title="Banana" data-gallery>

@@ -17,6 +17,10 @@ body.default{
     border-bottom: 3px solid #00ADBB;
 }
 
+.container > .navbar-header{
+    margin-left: 15px;
+}
+
 /* COLLAPSE NAVBAR CSS */
 @media (max-width: 995px) {
     .navbar-header {
@@ -56,27 +60,6 @@ body.default{
 }
 /* END COLLAPSE NAVBAR CSS */
 
-/* CAROUSEL CONTROL CSS*/
-.carousel-control{
-    position: absolute;
-    top: 40%;
-    width: 40px;
-    height: 40px;
-    margin-top: -20px;
-    font-size: 50px;
-    font-weight: 100;
-    line-height: 25px;
-    color: #ffffff;
-    text-align: center;
-    background: #222222;
-    border: 3px solid #ffffff;
-    -webkit-border-radius: 23px;
-    -moz-border-radius: 23px;
-    border-radius: 23px;
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-}
-/* END CAROUSEL CONTROL CSS*/
 
 .flora-btn{
     color: #ffffff;
@@ -90,16 +73,6 @@ body.default{
 .flora-btn:hover{
     background-color: #0095a2;
     border: 1px solid #0095a2;
-}
-
-.btn_signup{
-    margin-right: 0;
-    border-radius: 4px 0 0 4px;
-}
-
-.btn_login{
-    margin-left: -4px;
-    border-radius: 0 4px 4px 0;
 }
 
 .flora-navbar{
@@ -155,6 +128,18 @@ body.default{
 .flora-container{
     min-height: 280px;
     max-width: 1000px;
+}
+
+@media (min-width: 1200px){
+    .container {
+      width: 1170px !important;
+    }
+}
+
+@media (min-width: 992px){
+    .container {
+      width: 1000px;
+    }
 }
 
 .flora-table thead{background-color: #00ADBB;color: #FFF;}
@@ -350,6 +335,17 @@ body.default{
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
+
+.imageClip{
+    width:100%;
+    height: 170px;
+    overflow:hidden;
+}
+@media (max-width: 992px){
+    .imageClip{
+        height: auto;
+    }
+}
 /* END GALLERY CSS*/
 
 @media (max-width:300px){
@@ -359,6 +355,7 @@ body.default{
 }
 
 .footer {
+    position: absolute;
     width: 100%;
     padding: 15px 0;
     margin-top: 15px;
@@ -367,3 +364,4 @@ body.default{
 }
 
 .footer p{margin:0;}
+.footer a{color: #FFF; text-decoration: none;}
