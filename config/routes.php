@@ -6,9 +6,10 @@
 */
 
 $ROUTES = array(
-				'home',
-				'about',
+        	'home',
+        	'about',
                 'browse',
+                'workflow',
                 'repo',
                 'gallery',
                 'news',
