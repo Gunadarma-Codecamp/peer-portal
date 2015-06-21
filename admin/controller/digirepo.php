@@ -307,6 +307,32 @@ class digirepo extends Controller {
         	echo "<script>alert('Data successfully saved');window.location.href='".$redirect."'</script>";
         }
     }
+
+    function deleteEvent(){
+        global $CONFIG;
+        
+        $pathPDF = 'digirepo';
+        $pathIcon = 'digirepo/icon';
+        
+        foreach($_POST['ids'] as $id){
+            $getfile = $this->mdigirepo->get_event_content($id);
+            $delPDF[] = $getfile['filename'];
+            $delIcon[] = $getfile['icon'];
+        }
+        
+        foreach ($delPDF as $pdf){
+            $deletePDF = deleteFile($pdf,$pathPDF);
+        }
+
+        foreach ($delIcon as $icon){
+            $deleteIcon = deleteFile($icon,$pathIcon);
+        }
+        
+		$data = $this->mdigirepo->file_event_del($_POST['ids']);
+        
+        $redirect = $CONFIG['admin']['base_url'].'digirepo/events';
+		echo "<script>alert('Data successfully deleted');window.location.href='".$redirect."'</script>";
+    }
     
 }
 

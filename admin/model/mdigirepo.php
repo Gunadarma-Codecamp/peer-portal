@@ -275,5 +275,35 @@ class mdigirepo extends Database {
 		
 		return $result;
 	}
+
+	function get_event_content($data)
+	{
+		$query = "SELECT * FROM {$this->prefix}_digirepo WHERE otherid= {$data}";
+		
+		$result = $this->fetch($query,0);
+
+		//if($result['posted_date'] != '') $result['posted_date'] = dateFormat($result['posted_date'],'dd-mm-yyyy');
+		($result['n_status'] == 1) ? $result['n_status'] = 'checked' : $result['n_status'] = '';
+
+		return $result;
+	}
+
+	function file_event_del($id)
+	{
+		//pr($id);
+		foreach ($id as $key => $value) {
+			
+			//delete file from db
+			$query = "DELETE FROM {$this->prefix}_digirepo WHERE otherid = '{$value}'";
+			$result = $this->query($query);
+
+			//delete event from db
+			$query2 = "DELETE FROM {$this->prefix}_digirepo_events WHERE id = '{$value}'";
+			$result2 = $this->query($query2);
+		
+		}
+
+		return true;
+	}
 }
 ?>
