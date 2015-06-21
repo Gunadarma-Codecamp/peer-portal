@@ -50,7 +50,8 @@ $(function () {
                             
                             <!-- hidden -->
                             <input type="hidden" name="id" value="{$data.id}" />
-                            <input type="hidden" name="category" value="1" />
+                            <input type="hidden" name="otherid" value="{$smarty.get.otherid}" />
+                            <input type="hidden" name="category" value="{$smarty.get.cat}" />
                             <input type="hidden" name="authorid" value="{$admin.id}" />
                             <input type="hidden" name="files" value="{$data.files}" />
                             <input type="hidden" name="filename" value="{$data.filename}" />

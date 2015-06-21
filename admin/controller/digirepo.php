@@ -21,8 +21,11 @@ class digirepo extends Controller {
         $this->mdigirepo = $this->loadModel('mdigirepo');
 	}
 	
-	public function index(){
-		$data = $this->mdigirepo->get_repo();
+	public function content(){
+		$category = $_GET['cat'];
+		$id = $_GET['otherid'];
+
+		$data = $this->mdigirepo->get_repo($category, $id);
         //pr($data);exit;
 
 		if ($data){
@@ -118,7 +121,14 @@ class digirepo extends Controller {
 			   	
 		   }catch (Exception $e){}
         
-        $redirect = $CONFIG['admin']['base_url'].'digirepo';
+        if($x['category']){
+        	$cat = '?cat='.$x['category'].'&&otherid='.$x['otherid'];
+        }
+        else{
+        	$getfile = $this->mdigirepo->get_repo_id($x['id']);
+        	$cat = '?cat='.$getfile['category'].'&&otherid='.$getfile['otherid'];
+        }
+        $redirect = $CONFIG['admin']['base_url'].'digirepo/content/'.$cat;
         
         echo "<script>alert('Data successfully saved');window.location.href='".$redirect."'</script>";
         }
@@ -145,7 +155,7 @@ class digirepo extends Controller {
         
 		$data = $this->mdigirepo->file_del($_POST['ids']);
 		
-        $redirect = $CONFIG['admin']['base_url'].'digirepo';
+        $redirect = $CONFIG['admin']['base_url'].'digirepo/content/?cat='.$_POST['category'].'&&otherid='.$_POST['otherid'];
         
 		echo "<script>alert('Data successfully deleted');window.location.href='".$redirect."'</script>";
     }

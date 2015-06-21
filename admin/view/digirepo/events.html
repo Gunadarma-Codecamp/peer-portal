@@ -57,8 +57,8 @@
 									<th data-filterable="true" data-sortable="true">Place</th>
 									<th data-filterable="true" data-sortable="true">Start</th>
 									<th data-filterable="true" data-sortable="true">End</th>
-                                    <th data-filterable="true" data-sortable="true">Author</th>
                                     <th data-filterable="true" data-sortable="true">Status</th>
+                                    <th data-filterable="true" data-sortable="true">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -71,8 +71,8 @@
 									<td>{$var.place}</td>
 									<td>{$var.start_date}</td>
 									<td>{$var.end_date}</td>
-									<td>{$var.username}</td>
                                     <td style="color:{$var.status_color}">{$var.n_status}</td>
+                                    <td><a href="{$basedomain}digirepo/content/?cat=2&&otherid={$var.id}" class="btn btn-default btn-sm">Repository</a></td>
 								</tr>
                                 
 								{/foreach}

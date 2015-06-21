@@ -69,14 +69,14 @@ class mdigirepo extends Database {
 			
 			$query = "INSERT INTO  
 						{$this->prefix}_{$table} (
-                            title, category, source,
+                            otherid, title, category, source,
                             authorid, realname,
                             created_date, n_status, files,
                             filename, filesize, content, icon,
                             file_icon
                         )
 					VALUES
-						('".$data['title']."','".$data['category']."','".$data['source']."'
+						('".$data['otherid']."','".$data['title']."','".$data['category']."','".$data['source']."'
                         ,'".$data['authorid']."','".$data['realname']."'
                         ,'".$data['created_date']."','".$data['n_status']."','".$data['files']."'
                         ,'".$data['filename']."','".$data['filesize']."','".$data['content']."','".$data['icon']."'
@@ -90,8 +90,7 @@ class mdigirepo extends Database {
 							source = '{$data['source']}',
 							content = '{$data['content']}',
                             
-							category = '{$data['category']}',
-                            authorid = '{$data['authorid']}',
+							authorid = '{$data['authorid']}',
 							files = '{$data['files']}',
                             filename = '{$data['filename']}',
                             filesize = '{$data['filesize']}',
@@ -112,9 +111,15 @@ class mdigirepo extends Database {
 		return $result;
 	}
     
-    function get_repo($status=null)
+    function get_repo($category, $id)
 	{
-		$query = "SELECT * FROM {$this->prefix}_digirepo WHERE n_status != '2' ORDER BY created_date DESC";
+		if($id){
+			$whereid = "AND otherid = '".$id."'";
+		}
+		else{
+			$whereid = '';
+		}
+		$query = "SELECT * FROM {$this->prefix}_digirepo WHERE n_status != '2' AND category = '".$category."' ".$whereid." ORDER BY created_date DESC";
 		
 		$result = $this->fetch($query,1);
         

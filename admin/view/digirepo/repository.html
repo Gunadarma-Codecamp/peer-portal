@@ -37,7 +37,10 @@
 
 					<form action="{$basedomain}digirepo/deleteFile" method=POST name="checks" ID="Form2" onsubmit="return confirm('Are you sure want to delete this file(s)?');">
                     
-					<a href="{$basedomain}digirepo/addfiles"><button type="button" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add File</button></a>
+                    <a href="{$basedomain}digirepo/addfiles/?cat={$smarty.get.cat}&&otherid={$smarty.get.otherid}"><button type="button" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add File</button></a>
+
+                    <input type="hidden" name="category" value="{$smarty.get.cat}" />
+                    <input type="hidden" name="otherid" value="{$smarty.get.otherid}" />
 
 					<button type="submit" class="btn btn-primary btn-sm" id="btn-dis" disabled><i class="fa fa-trash-o"></i> Delete</button>
                     
@@ -54,8 +57,8 @@
 										<input type="checkbox" class="icheck-input" onchange="return AreAnyCheckboxesChecked();">
 									</th>
                                     <th data-filterable="true" data-sortable="true">Title</th>
+                                    <th data-filterable="true" data-sortable="true">Source</th>
 									<th data-filterable="true" data-sortable="true">Filename & Icon</th>
-									<th data-filterable="true" data-sortable="true">Category</th>
                                     <th data-filterable="true" data-sortable="true">Author</th>
                                     <th data-filterable="true" data-sortable="true">Status</th>
 								</tr>
@@ -67,11 +70,11 @@
 										<input type="checkbox" class="icheck-input" name="ids[]" value="{$var.id}" onchange="return AreAnyCheckboxesChecked();" />
 									</td>
                                     <td><a href="{$basedomain}digirepo/addfiles/?id={$var.id}" data-toggle="tooltip" data-placement="right" title="Edit or view {$var.title}">{$var.title}</a></td>
+                                    <td>{$var.source}</td>
 									<td>
                                     <img class="img-responsive thumbnail" src="{$var.file_icon}" style="max-width: 100px;max-height: 120px;" /><br />
                                     {$var.realname}
                                     </td>
-									<td>{if $var.category eq '1'}References{elseif $var.category eq '2'}Workshop Material{/if}</td>
 									<td>{$var.username}</td>
                                     <td style="color:{$var.status_color}">{$var.n_status}</td>
 								</tr>
