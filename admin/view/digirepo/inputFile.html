@@ -40,18 +40,7 @@ $(function () {
     							<label for="text-input">Title</label>
     							<input type="text" name="title" class="form-control" value="{$data.title}" data-required="true"/>
 							</div>
-						</div>
-
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="text-input">Category</label>
-                                
-                                <select name="category" class="form-control" >
-                                    <option value="1" {if $data.category==1}selected{/if} >References</option>
-                                    <option value="2" {if $data.category==2}selected{/if} >Workshop Material</option>
-                                </select>
-                            </div>
-                        </div>  
+						</div> 
                         
                         <div class="col-sm-12">
 							<div class="form-group">
@@ -61,6 +50,7 @@ $(function () {
                             
                             <!-- hidden -->
                             <input type="hidden" name="id" value="{$data.id}" />
+                            <input type="hidden" name="category" value="1" />
                             <input type="hidden" name="authorid" value="{$admin.id}" />
                             <input type="hidden" name="files" value="{$data.files}" />
                             <input type="hidden" name="filename" value="{$data.filename}" />

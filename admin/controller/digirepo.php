@@ -217,9 +217,86 @@ class digirepo extends Controller {
         $redirect = $CONFIG['admin']['base_url'].'digirepo/links';
         $message = 'Link has been deleted';
         
-		echo "<script>alert('".$message."');window.location.href='".$redirect."'</script>";
-		
+		echo "<script>alert('".$message."');window.location.href='".$redirect."'</script>";	
 	}
+
+	public function events(){
+		$data = $this->mdigirepo->get_events();
+        //pr($data);exit;
+
+		if ($data){
+			foreach ($data as $key => $val){
+
+				$data[$key]['start_date'] = date('d M Y H:i',strtotime($val['start_date']));
+				$data[$key]['end_date'] = date('d M Y H:i',strtotime($val['end_date']));
+
+				if($val['n_status'] == '1') {
+					$data[$key]['n_status'] = 'Publish';
+					$data[$key]['status_color'] = 'green';
+				} else {
+					$data[$key]['n_status'] = 'Unpublish';
+					$data[$key]['status_color'] = 'red'; 
+				}
+			}
+		}
+		
+		//pr($data);exit;
+		$this->view->assign('data',$data);
+        return $this->loadView('digirepo/events');
+	}
+
+	public function addevents(){
+        if(isset($_GET['id']))
+		{
+
+			$data = $this->mdigirepo->get_event_id($_GET['id']);
+            
+            if($data){
+            	$data['start_date'] = date('d-m-Y H:i',strtotime($data['start_date']));
+            	$data['end_date'] = date('d-m-Y H:i',strtotime($data['end_date']));
+                $data['created_date'] = dateFormat($data['created_date'],'article');
+            }
+            
+			$this->view->assign('data',$data);
+		}
+        
+        $this->view->assign('admin',$this->admin['admin']);
+        return $this->loadView('digirepo/inputEvent');
+    }
+
+    public function do_addEvent(){
+    	global $CONFIG;
+    	if(isset($_POST['n_status'])){
+			if($_POST['n_status']=='on') $_POST['n_status']=1;
+		} else {
+			$_POST['n_status']=0;
+		}
+        
+		if(isset($_POST)){
+			// validasi value yang masuk
+			$x = form_validation($_POST);
+			try
+			{
+					if(isset($x) && count($x) != 0)
+					{
+					//update or insert
+					$x['action'] = 'insert';
+					if($x['id'] != ''){
+						$x['action'] = 'update';
+					}
+
+			        //pr($x);exit;
+					$data = $this->mdigirepo->eventInp('digirepo_events',$x);
+					
+					}
+			   	
+			}catch (Exception $e){}
+
+			$redirect = $CONFIG['admin']['base_url'].'digirepo/events';
+        
+        	echo "<script>alert('Data successfully saved');window.location.href='".$redirect."'</script>";
+        }
+    }
     
 }
 

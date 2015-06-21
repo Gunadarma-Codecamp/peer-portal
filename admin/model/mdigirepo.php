@@ -195,8 +195,80 @@ class mdigirepo extends Database {
 		
 		}
 
-		return true;
+		return true;		
+	}
+
+	function get_events()
+	{
+		$query = "SELECT * FROM {$this->prefix}_digirepo_events WHERE n_status != '2' ORDER BY created_date DESC";
 		
+		$result = $this->fetch($query,1);
+
+		foreach ($result as $key => $value) {
+			$query = "SELECT username FROM admin_member WHERE id={$value['authorid']} LIMIT 1";
+
+			$username = $this->fetch($query,0);
+
+			$result[$key]['username'] = $username['username'];
+		}
+		
+		return $result;
+	}
+
+	function get_event_id($id)
+	{
+		$query = "SELECT * FROM {$this->prefix}_digirepo_events WHERE id= {$id}";
+		
+		$result = $this->fetch($query,0);
+
+		//if($result['posted_date'] != '') $result['posted_date'] = dateFormat($result['posted_date'],'dd-mm-yyyy');
+		($result['n_status'] == 1) ? $result['n_status'] = 'checked' : $result['n_status'] = '';
+
+		return $result;
+	}
+
+	function eventInp($table,$data)
+	{
+        
+		$data['title'] = addslashes($data['title']);
+        $data['place'] = addslashes($data['place']);
+        $data['start_date'] = date("Y-m-d H:i:s",strtotime($data['start_date']));
+        $data['end_date'] = date("Y-m-d H:i:s",strtotime($data['end_date']));
+        $data['postdate'] = date("Y-m-d H:i:s",strtotime($data['postdate']));
+
+		if($data['action'] == 'insert'){
+			
+			$query = "INSERT INTO  
+						{$this->prefix}_{$table} (
+                            title, place, authorid,
+                            start_date, end_date, created_date, 
+                            n_status
+                        )
+					VALUES
+						('".$data['title']."','".$data['place']."','".$data['authorid']."',
+						'".$data['start_date']."','".$data['end_date']."','".$data['postdate']."',
+                        '".$data['n_status']."')";
+                        //pr($query);exit;
+
+		} else {
+			$query = "UPDATE {$this->prefix}_{$table}
+						SET 
+							title = '{$data['title']}',
+							place = '{$data['place']}',
+							authorid = '{$data['authorid']}',
+
+							start_date = '{$data['start_date']}',
+							end_date = '{$data['end_date']}',
+							created_date = '{$data['postdate']}',
+							n_status = {$data['n_status']}
+						WHERE
+							id = '{$data['id']}'";
+
+            //pr($query);exit;
+		}
+		$result = $this->query($query);
+		
+		return $result;
 	}
 }
 ?>
