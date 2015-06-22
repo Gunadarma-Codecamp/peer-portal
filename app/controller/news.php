@@ -22,6 +22,10 @@ class news extends Controller {
 	function index(){
     	return $this->loadView('news/index');
     }
+
+    function list_news(){
+        return $this->loadView('news/list_news');
+    }
     
     function view(){
         return $this->loadView('news/post_view');

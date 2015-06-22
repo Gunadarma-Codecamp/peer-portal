@@ -249,14 +249,20 @@ body.default{
 /* NEWS CSS */
 .time-ago{
     line-height: 20px;
-    margin-top: -20px;
+    margin-top: -30px;
     padding: 0 10px;
     position: absolute;
     z-index: 10;
     background: none repeat scroll 0 0 #00ADBB;
 }
-.time-ago a{color: #FFFFFF;}
-.latest_news a{font-size: 13px;}
+.time-ago p{color: #FFFFFF; margin: 0;}
+.latest_news img{margin-bottom: 10px;}
+.latest_news a.title{
+    font-size: 17px;
+    font-weight: bold;
+    color: #009ACD;
+}
+.latest_news{margin-bottom: 15px;}
 
 #newsCarousel .carousel-caption{
     position: absolute;
@@ -281,7 +287,7 @@ body.default{
 }
 
 #newsCarousel .item a{color: #FFF;}
-#newsCarousel, #newsCarousel .item{height: 250px;}
+#newsCarousel, #newsCarousel .item{height: 300px;}
 
 .flora-postNews h3{
     color: #333; 
