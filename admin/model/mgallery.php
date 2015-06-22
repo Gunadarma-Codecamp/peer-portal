@@ -54,6 +54,7 @@ class mgallery extends Database {
         $query = "SELECT * FROM {$this->prefix}_news_content WHERE id = '{$id}'";
 		
 		$result = $this->fetch($query,0);
+		($result['n_status'] == 1) ? $result['n_status'] = 'checked' : $result['n_status'] = '';
         return $result;
     }
 	
