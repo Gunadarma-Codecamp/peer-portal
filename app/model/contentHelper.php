@@ -1,41 +1,25 @@
 <?php
 class contentHelper extends Database {
 	
-	function getNews()
-	{
-		
-		$sql = "SELECT n.title, cr.friendlyUrl FROM tbl_news n LEFT JOIN code_url_redirect cr ON n.id = cr.articleId
-				WHERE cr.n_status = 1";
-		$res = $this->fetch($sql,1);
-		if ($res) return $res;
-		return false;
-	}
-	
-	function readNews($url=false)
-	{
-		if(!$url) return false;
-		
-		$urlArticle = clean($url);
-		global $CONFIG;
-		
-		if ($CONFIG['uri']['short']) $field = " shortUrl ";
-		if ($CONFIG['uri']['friendly']) $field = " friendlyUrl ";
-		
-		
-		$sql = "SELECT n.* FROM tbl_news n LEFT JOIN code_url_redirect cr 
-				ON n.id = cr.articleId WHERE cr.{$field} = '{$urlArticle}' LIMIT 1";
-		// pr($sql);
-		$res = $this->fetch($sql);
-		if ($res) return $res;
-		return false;
-	}
-
 	function getData($condition,$select,$table,$where){
 		if($condition == TRUE){
 			$sql = "SELECT {$select} FROM {$table} WHERE {$where}";
 		}
 		else{
 			$sql = "SELECT {$select} FROM {$table}";
+		}
+		//pr($sql);
+		$res = $this->fetch($sql,1,1);
+		if ($res) return $res;
+		return false;
+	}
+
+	function getDataLimit($condition,$select,$table,$where,$limit){
+		if($condition == TRUE){
+			$sql = "SELECT {$select} FROM {$table} WHERE {$where} ORDER BY posted_date DESC LIMIT {$limit}";
+		}
+		else{
+			$sql = "SELECT {$select} FROM {$table} ORDER BY posted_date DESC LIMIT {$limit}";
 		}
 		//pr($sql);
 		$res = $this->fetch($sql,1,1);

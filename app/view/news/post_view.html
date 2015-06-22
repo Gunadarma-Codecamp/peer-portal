@@ -3,12 +3,13 @@
         <div class="row">
         
         <div class="col-md-12">
+        {foreach $data as $get}
         <!-- VIEW NEWS -->
           <div class="flora-postNews">
-            <a href="{$basedomain}news/view"><h3>Integer nibh orci, elementum quis adipiscing non, tristique ut risus.</h3></a>
+            <a href="#"><h3>{$get.title}</h3></a>
             <div class="meta-wrap">          
                 <div class="meta pull-left">
-                   <span class="dateTime"> Posted by <span class="author"><a href="#">admin</a></span>  at 11:20 am July 22, 2014</span>
+                   <span class="dateTime"> Posted on <!--<span class="author"><a href="#">admin</a></span>  at 11:20 am -->{$get.posted_date}</span>
                 </div>
             
                 <!--<div class="post-share pull-right">
@@ -17,18 +18,14 @@
             </div>
             
             <div class="news-content">
-                <a href="{$basedomain}news/view"><img class="img-responsive pull-left" style="  max-width: 450px; margin-right: 20px;" src="{$basedomain}public_assets/news/images/3.JPG" style="margin-bottom: 15px;"></a>
+                <a href="$"><img class="img-responsive pull-left" style="max-width: 450px; margin-right: 20px; margin-bottom: 15px;" src="{$get.file}"></a>
                 
                 
-                <p>Integer nibh orci, elementum quis adipiscing non, tristique ut risus. Cras elementum, nunc vel egestas tincidunt, magna sem tristique dolor, vel molestie enim nibh non lectus. Aliquam lacinia ipsum ut risus dapibus ullamcorper congue risus feugiat. Praesent venenatis nibh id est egestas sagittis. Maecenas euismod diam id justo tempus a volutpat velit pretium. Duis enim quam, fringilla in dignissim eu, mattis in lectus. Maecenas rutrum turpis sed elit </p>
-                <p>Integer nibh orci, elementum quis adipiscing non, tristique ut risus. Cras elementum, nunc vel egestas tincidunt, magna sem tristique dolor, vel molestie enim nibh non lectus. Aliquam lacinia ipsum ut risus dapibus ullamcorper congue risus feugiat. Praesent venenatis nibh id est egestas sagittis. Maecenas euismod diam id justo tempus a volutpat velit pretium. Duis enim quam, fringilla in dignissim eu, mattis in lectus. Maecenas rutrum turpis sed elit </p>
-                <p>Integer nibh orci, elementum quis adipiscing non, tristique ut risus. Cras elementum, nunc vel egestas tincidunt, magna sem tristique dolor, vel molestie enim nibh non lectus. Aliquam lacinia ipsum ut risus dapibus ullamcorper congue risus feugiat. Praesent venenatis nibh id est egestas sagittis. Maecenas euismod diam id justo tempus a volutpat velit pretium. Duis enim quam, fringilla in dignissim eu, mattis in lectus. Maecenas rutrum turpis sed elit </p>
-                <p>Integer nibh orci, elementum quis adipiscing non, tristique ut risus. Cras elementum, nunc vel egestas tincidunt, magna sem tristique dolor, vel molestie enim nibh non lectus. Aliquam lacinia ipsum ut risus dapibus ullamcorper congue risus feugiat. Praesent venenatis nibh id est egestas sagittis. Maecenas euismod diam id justo tempus a volutpat velit pretium. Duis enim quam, fringilla in dignissim eu, mattis in lectus. Maecenas rutrum turpis sed elit </p>
-                <p>Integer nibh orci, elementum quis adipiscing non, tristique ut risus. Cras elementum, nunc vel egestas tincidunt, magna sem tristique dolor, vel molestie enim nibh non lectus. Aliquam lacinia ipsum ut risus dapibus ullamcorper congue risus feugiat. Praesent venenatis nibh id est egestas sagittis. Maecenas euismod diam id justo tempus a volutpat velit pretium. Duis enim quam, fringilla in dignissim eu, mattis in lectus. Maecenas rutrum turpis sed elit </p>
-                <p>Integer nibh orci, elementum quis adipiscing non, tristique ut risus. Cras elementum, nunc vel egestas tincidunt, magna sem tristique dolor, vel molestie enim nibh non lectus. Aliquam lacinia ipsum ut risus dapibus ullamcorper congue risus feugiat. Praesent venenatis nibh id est egestas sagittis. Maecenas euismod diam id justo tempus a volutpat velit pretium. Duis enim quam, fringilla in dignissim eu, mattis in lectus. Maecenas rutrum turpis sed elit </p>
+                <p>{$get.content}</p>
             </div>
           </div>
           <!-- END NEWS -->
+          {/foreach}
           
           
         </div>
