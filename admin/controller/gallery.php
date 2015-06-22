@@ -31,6 +31,9 @@ class gallery extends Controller {
 	}
 	
 	public function add(){
+        $albumId = $_GET['album'];
+        $data = $this->gallery->get_album($albumId);
+        $this->view->assign('data',$data);
 		return $this->loadView('gallery/inputAlbum');
 	}
 	

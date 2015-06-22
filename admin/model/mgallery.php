@@ -49,6 +49,13 @@ class mgallery extends Database {
 		
 		return $result;
 	}
+
+	function get_album($id){
+        $query = "SELECT * FROM {$this->prefix}_news_content WHERE id = '{$id}'";
+		
+		$result = $this->fetch($query,0);
+        return $result;
+    }
 	
 	function get_images($albumid=null,$type=1)
 	{
