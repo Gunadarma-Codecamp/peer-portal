@@ -62,6 +62,16 @@ class article extends Controller {
 		} else {
 			$_POST['articletype']=0;
 		}
+
+		if(isset($_POST['highlight'])){
+			if($_POST['highlight']=='on') {
+				$_POST['highlight']=1;
+			}
+		} else {
+			$_POST['highlight']=0;
+		}
+
+		//pr($_POST);
  		
 			if(isset($_POST)){
                 // validasi value yang masuk
@@ -117,7 +127,7 @@ class article extends Controller {
                     }
 				}
             }
-            
+            //echo $redirect;
             echo "<script>alert('Data successfully saved');window.location.href='".$redirect."'</script>";
             }
 	}

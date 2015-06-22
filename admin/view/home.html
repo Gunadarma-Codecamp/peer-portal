@@ -54,6 +54,8 @@
 										<input type="checkbox" class="icheck-input" onchange="return AreAnyCheckboxesChecked();">
 									</th>
 									<th data-filterable="true" data-sortable="true" >Title</th>
+									<th data-filterable="true" data-sortable="true" >Category</th>
+									<th data-filterable="true" data-sortable="true" >Featured</th>
 									<th data-filterable="true" data-sortable="true" >Status</th>
 									<th data-filterable="true" data-sortable="true">Created Date</th>
 									<th data-filterable="true" data-sortable="true">Author</th>
@@ -66,6 +68,8 @@
 										<input type="checkbox" class="icheck-input" name="ids[]" value="{$var.id}" onchange="return AreAnyCheckboxesChecked();" />
 									</td>
 									<td><a href="{$basedomain}article/addarticle/?id={$var.id}" data-toggle="tooltip" data-placement="right" title="Edit or view {$var.title}">{$var.title}</a></td>
+									<td>{if $var.articleType eq '0'}News{else}Announcement{/if}</td>
+									<td>{if $var.highlight eq '0'}No{else}Yes{/if}</td>
 									<td style="color:{$var.status_color}">{$var.n_status}</td>
 									<td>{$var.posted_date}</td>
 									<td>{$var.username}</td>
