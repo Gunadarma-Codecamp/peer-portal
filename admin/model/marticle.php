@@ -21,6 +21,15 @@ class marticle extends Database {
         else {
         	$data['expired_date'] = '0000-00-00';
         }
+        if(isset($data['highlight'])){
+        	$var = 'highlight,';
+        	$varUpd = 'highlight =';
+        	$val = $data['highlight'].',';
+        }
+        else{
+        	$var = '';
+        	$val = '';
+        }
         
         $data['title'] = mysql_escape_string($data['title']);
         $data['brief'] = mysql_escape_string($data['brief']);
@@ -29,11 +38,11 @@ class marticle extends Database {
 		if($data['action'] == 'insert'){
 			
 			$query = "INSERT INTO  
-						{$this->prefix}_news_content (title,brief,content,image,file,categoryid,articletype,highlight,
+						{$this->prefix}_news_content (title,brief,content,image,file,categoryid,articletype,{$var}
 												created_date,posted_date,expired_date,authorid,n_status)
 					VALUES
 						('".$data['title']."','".$data['brief']."','".$data['content']."','".$data['image']."'
-                        ,'".$data['image_url']."','".$data['categoryid']."','".$data['articletype']."','".$data['highlight']."','".$date."'
+                        ,'".$data['image_url']."','".$data['categoryid']."','".$data['articletype']."',".$val.",'".$date."'
                         ,'".$data['postdate']."','".$data['expired_date']."','".$data['authorid']."','".$data['n_status']."')";
                         //pr($query);exit;
 
@@ -47,7 +56,7 @@ class marticle extends Database {
 							image = '{$data['image']}',
 							file = '{$data['image_url']}',
                             articletype = '{$data['articletype']}',
-                            highlight = '{$data['highlight']}',
+                            {$varUpd} {$val}
 							posted_date = '{$data['postdate']}',
                             expired_date = '{$data['expired_date']}',
 							authorid = '{$data['authorid']}',
@@ -55,7 +64,7 @@ class marticle extends Database {
 						WHERE
 							id = '{$data['id']}'";
 		}
-pr($query);
+//pr($query);
 		$result = $this->query($query);
 		
 		return $result;
