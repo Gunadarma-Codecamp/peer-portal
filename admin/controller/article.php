@@ -103,7 +103,7 @@ class article extends Controller {
                                 if($x['action'] == 'update') deleteFile($x['image'],$path_upload);
 								//if($x['action'] == 'update') deleteFile($x['image']);
 								$image = uploadFile('file_image',$path_upload,'image');
-								
+								logFile(serialize($image));
 								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
 								$x['image'] = $image['full_name'];
 							}
