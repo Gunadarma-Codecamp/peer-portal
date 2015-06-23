@@ -37,6 +37,22 @@ class digirepo extends Controller {
 		$this->view->assign('title','Reference');
         return $this->loadView('digirepo/reference');
     }
+
+    function links(){
+    	$where = "categoryid = '4' AND n_status = '1'";
+		$data = $this->models->getData(TRUE,'*','floraINA_news_content',$where);
+		//pr($data);
+		if($data){
+			foreach ($data as $key => $value) {
+				$data[$key]['created_date'] = dateFormat($value['created_date'],'article');
+			}
+			
+			$this->view->assign('data',$data);
+		}
+
+		$this->view->assign('title','Important Links');
+        return $this->loadView('digirepo/links');
+    }
     
     function repositoryDetail(){
     	$id = $_GET['id'];
