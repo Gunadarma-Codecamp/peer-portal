@@ -19,14 +19,14 @@ class marticle extends Database {
         	$data['expired_date'] = date("Y-m-d H:i:s",strtotime($data['expired_date']));
         }
         else {
-        	$data['expired_date'] = '0000-00-00';
+        	$data['expired_date'] = '0000-00-00 00:00:00';
         }
         
         $data['title'] = mysql_escape_string($data['title']);
         $data['brief'] = mysql_escape_string($data['brief']);
         $data['content'] = mysql_escape_string($data['content']);
 
-        pr($data);exit;
+        //pr($data);exit;
 
 		if($data['action'] == 'insert'){
 			
