@@ -20,14 +20,15 @@ class browse extends Controller {
 	}
 	
 	function dataTaxon(){
-    	$listAll = array();
-        
+    	global $CONFIG;
+        $listAll = array();
+
         //Get all data taxon
-        $taxon = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getDataTaxon');
+        $taxon = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataTaxon');
         
         for($i=0;$i<count($taxon->result);$i++){
             //Get taxon's 'images
-            $img = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getImgTaxon/?id='.$taxon->result[$i]->id);
+            $img = jsDecode($CONFIG['default']['app_url'].'services/taxon/getImgTaxon/?id='.$taxon->result[$i]->id);
             $listAll[]= array('taxon'=>$taxon->result[$i],'img'=>$img);
         }
         if(empty($listAll)){
@@ -42,7 +43,7 @@ class browse extends Controller {
 
     function dataLocation(){
         //Get all data taxon
-        $location = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getDataLocation');
+        $location = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataLocation');
         if(empty($location)){
             $this->view->assign('noData','empty');
         }
@@ -55,7 +56,7 @@ class browse extends Controller {
 
     function dataPerson(){
         //Get all data taxon
-        $person = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getDataPerson');
+        $person = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataPerson');
         if(empty($person)){
             $this->view->assign('noData','empty');
         }
@@ -72,25 +73,25 @@ class browse extends Controller {
         
         if($action=='indivTaxon'){
             //get taxon name
-            $title = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getTitle/?id='.$id);
+            $title = jsDecode($CONFIG['default']['app_url'].'services/taxon/getTitle/?id='.$id);
             //get data indiv
-            $getIndiv = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getIndivTaxon/?id='.$id);
+            $getIndiv = jsDecode($CONFIG['default']['app_url'].'services/taxon/getIndivTaxon/?id='.$id);
             //pr($getIndiv);exit;
         }
         if($action=='indivLocn'){
             $title='';
             //get data indiv
-            $getIndiv = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getIndivLocation/?id='.$id);
+            $getIndiv = jsDecode($CONFIG['default']['app_url'].'services/taxon/getIndivLocation/?id='.$id);
         }
         if($action=='indivPerson'){
             $title='';
             //get data indiv
-            $getIndiv = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getIndivPerson/?id='.$id);
+            $getIndiv = jsDecode($CONFIG['default']['app_url'].'services/taxon/getIndivPerson/?id='.$id);
         }
         $listAll = array();
         for($i=0;$i<count($getIndiv->result);$i++){
             //Get indiv's 'images
-            $img = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getImgIndiv/?id='.$getIndiv->result[$i]->indivID);
+            $img = jsDecode($CONFIG['default']['app_url'].'services/taxon/getImgIndiv/?id='.$getIndiv->result[$i]->indivID);
             $listAll[]= array('indiv'=>$getIndiv->result[$i],'img'=>$img);
         }
         
@@ -109,13 +110,13 @@ class browse extends Controller {
     function indivDetail(){
         $indivID = $_GET['id'];
         //get whole data indiv detail
-        $indivDetail = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/detailIndiv/?id='.$indivID);
+        $indivDetail = jsDecode($CONFIG['default']['app_url'].'services/taxon/detailIndiv/?id='.$indivID);
         //get determinant from selected indiv
-        $indivDeterminant = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/dataDetIndiv/?id='.$indivID);
+        $indivDeterminant = jsDecode($CONFIG['default']['app_url'].'services/taxon/dataDetIndiv/?id='.$indivID);
         //get all images from indiv selected
-        $indivImages = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/getAllImgIndiv/?id='.$indivID);
+        $indivImages = jsDecode($CONFIG['default']['app_url'].'services/taxon/getAllImgIndiv/?id='.$indivID);
         //get all observations from indiv selected
-        $indivObs = jsDecode('http://localhost/florakb/flora-kalbar.info/services/taxon/dataObsIndiv/?id='.$indivID);
+        $indivObs = jsDecode($CONFIG['default']['app_url'].'services/taxon/dataObsIndiv/?id='.$indivID);
         
         /**
         //get list enum habit
