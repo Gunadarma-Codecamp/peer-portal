@@ -134,7 +134,12 @@ padding: 13px 12px;"></div>
                             <label for="file_icon">Icon Image</label>                        
                             <div class="fileupload fileupload-new" data-provides="fileupload">
     						  <div class="fileupload-new thumbnail" style="width: 208px; min-height: 120px;">
-                                <img src="{$data.file_icon}" alt="{$data.icon}" /></div>
+                                {if $data.icon}
+                                    <img src="{$appdomain}public_assets/digirepo/icon/{$data.icon}" alt="{$data.icon}" />
+                                {else}
+                                    <img src="" alt="" />
+                                {/if}
+                              </div>
     						  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; line-height: 20px;"></div>
     						  <div>
     							<span class="btn btn-default btn-file">

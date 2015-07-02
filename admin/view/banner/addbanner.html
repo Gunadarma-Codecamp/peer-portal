@@ -58,7 +58,12 @@ $(function () {
                             <div class="form-group">                       
                                 <div class="fileupload fileupload-new" data-provides="fileupload">
         						  <div class="fileupload-new thumbnail" style="width: 208px; min-height: 120px;">
-                                    <img src="{$data.file}" alt="{$data.image}" /></div>
+                                    {if $data.image}
+                                        <img src="{$appdomain}public_assets/banner/{$data.image}" alt="{$data.image}" />
+                                    {else}
+                                        <img src="" alt="" />
+                                    {/if}
+                                  </div>
         						  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; line-height: 20px;"></div>
         						  <div>
         							<span class="btn btn-default btn-file">
