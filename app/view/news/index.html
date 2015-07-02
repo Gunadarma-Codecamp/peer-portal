@@ -13,7 +13,7 @@
                         {else}
                             <div class="item">
                         {/if}
-                            <a href="{$basedomain}news/view/?id={$getFeature.id}"><img class="attachment-feature-home" src="{$getFeature.file}" style="width:100%;"></a>
+                            <a href="{$basedomain}news/view/?id={$getFeature.id}"><img class="attachment-feature-home" src="{$basedomain}public_assets/news/{$getFeature.image}" style="width:100%;"></a>
                             <h4><a href="{$basedomain}news/view">FEATURED</a></h4>
                             
                             <div class="carousel-caption">
@@ -45,7 +45,7 @@
                     {foreach $dataNews as $getNews}
                     <div class="col-md-4 latest_news">
                         <a href="{$basedomain}news/view/?id={$getNews.id}" title="{$getNews.title}">
-                            <img src="{$getNews.file}" class="img-responsive">
+                            <img src="{$basedomain}public_assets/news/{$getFeature.image}" class="img-responsive">
                         </a>
                         <div class="time-ago"><p>{$getNews.posted_date}</p></div>
                         <a href="{$basedomain}news/view/?id={$getNews.id}" class="title">{$getNews.title}</a>
@@ -89,7 +89,7 @@
                     {foreach $dataAnnouncement as $getAnnounce}
                     <div class="col-md-4 latest_news">
                         <a href="{$basedomain}news/view/?id={$getAnnounce.id}" title="{$getAnnounce.title}">
-                            <img src="{$getAnnounce.file}" class="img-responsive">
+                            <img src="{$basedomain}public_assets/news/{$getAnnounce.image}" class="img-responsive">
                         </a>
                         <div class="time-ago"><p>{$getAnnounce.posted_date}</p></div>
                         <a href="{$basedomain}news/view/?id={$getAnnounce.id}" class="title">{$getAnnounce.title}</a>
