@@ -42,6 +42,7 @@ class browse extends Controller {
     }
 
     function dataLocation(){
+        global $CONFIG;
         //Get all data taxon
         $location = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataLocation');
         if(empty($location)){
@@ -55,6 +56,7 @@ class browse extends Controller {
     }
 
     function dataPerson(){
+        global $CONFIG;
         //Get all data taxon
         $person = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataPerson');
         if(empty($person)){
@@ -68,6 +70,7 @@ class browse extends Controller {
     }
     
     function indiv(){
+        global $CONFIG;
         $id = $_GET['id'];
         $action = $_GET['action'];
         
@@ -108,6 +111,7 @@ class browse extends Controller {
     }
     
     function indivDetail(){
+        global $CONFIG;
         $indivID = $_GET['id'];
         //get whole data indiv detail
         $indivDetail = jsDecode($CONFIG['default']['app_url'].'services/taxon/detailIndiv/?id='.$indivID);
