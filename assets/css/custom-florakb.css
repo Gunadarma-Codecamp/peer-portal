@@ -1,6 +1,9 @@
 body.default{
     background-color: #efefef;
 }
+a{
+    color: #282828;
+}
 .flora-separator{border: 1px solid #00ADBB;}
 .navbar{
     color: rgba(255, 255, 255, 0.701961);
