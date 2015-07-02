@@ -35,11 +35,11 @@ class banner extends Controller {
 
 				$data[$key]['posted_date'] = dateFormat($val['posted_date'],'article');
 
-				if($val['n_stats'] == '1') {
-					$data[$key]['n_stats'] = 'Publish';
+				if($val['n_status'] == '1') {
+					$data[$key]['n_status'] = 'Publish';
 					$data[$key]['status_color'] = 'green';
 				} else {
-					$data[$key]['n_stats'] = 'Unpublish';
+					$data[$key]['n_status'] = 'Unpublish';
 					$data[$key]['status_color'] = 'red'; 
 				}
 			}
@@ -77,10 +77,10 @@ class banner extends Controller {
 	public function bannerinp(){
 		global $CONFIG;
 		
-		if(isset($_POST['n_stats'])){
-			if($_POST['n_stats']=='on') $_POST['n_stats']=1;
+		if(isset($_POST['n_status'])){
+			if($_POST['n_status']=='on') $_POST['n_status']=1;
 		} else {
-			$_POST['n_stats']=0;
+			$_POST['n_status']=0;
 		}
  		
 		if(isset($_POST)){

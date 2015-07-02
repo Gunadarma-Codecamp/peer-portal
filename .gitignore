@@ -11,3 +11,4 @@ plugin/*
 admin/cache/*
 admin/config/config.php
 admin/tmp/*
+admin/logs/*

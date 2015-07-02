@@ -19,10 +19,10 @@ class mbanner extends Database {
 			//pr($data);exit;
 			//yang atas nama variabel @ db.
 			$query = "INSERT INTO {$this->prefix}_banner 
-						(description,image,file,created_date,posted_date,author_id,n_stats)
+						(description,image,file,created_date,posted_date,author_id,n_status)
 					  VALUES
 						('".$data['description']."','".$data['image']."','".$data['image_url']."','".$date."'
-                        ,'".$data['postdate']."','".$data['authorid']."','".$data['n_stats']."')";
+                        ,'".$data['postdate']."','".$data['authorid']."','".$data['n_status']."')";
                         
                         //pr($query);exit;
 
@@ -36,7 +36,7 @@ class mbanner extends Database {
 							posted_date = '".$date."',
                             expired_date = '{$data['expired_date']}',
 							author_id = '{$data['authorid']}',
-							n_stats = {$data['n_stats']}
+							n_status = {$data['n_status']}
 						WHERE
 							id = '{$data['id']}'";
 		}
@@ -48,7 +48,7 @@ class mbanner extends Database {
 	
 	function get_banner($n_stats=null)
 	{
-		$query = "SELECT * FROM {$this->prefix}_banner WHERE n_stats != '2' ORDER BY posted_date DESC";
+		$query = "SELECT * FROM {$this->prefix}_banner WHERE n_status != '2' ORDER BY posted_date DESC";
 		
 		$result = $this->fetch($query,1);
 
