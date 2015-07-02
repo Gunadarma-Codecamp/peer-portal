@@ -13,8 +13,6 @@ class Controller extends Application{
 			$this->loadModel('helper_model');
 			$GLOBALS['CODEKIR']['LOGS'] = new helper_model;
 		}
-		
-
 	}
 	
 	
@@ -29,10 +27,10 @@ class Controller extends Application{
 		$this->view->assign('basedomain',$basedomain);
         $this->view->assign('appdomain',$appdomain);
 		$this->view->assign('page',$DATA[$this->configkey]);
+		$this->view->assign('carouselIndex',$this->carouselIndex());
 		
 		if ($this->configkey=='default')$this->view->assign('user',$this->isUserOnline());
 		if ($this->configkey=='admin')$this->view->assign('admin',$this->isAdminOnline());
-		if ($this->configkey=='dashboard')$this->view->assign('dashboard',$this->isAdminOnline());
 		
 		// $this->inject();
 		// pr($this->isAdminOnline());
@@ -88,16 +86,6 @@ class Controller extends Application{
 				}
 			}
 
-			if ($this->configkey == 'dashboard'){ echo '1';
-				if ($DATA[$this->configkey]['page']=='login'){
-					if ($this->isAdminOnline()){
-					redirect($CONFIG[$this->configkey]['default_view']);
-					exit;
-					}
-				}
-			}
-
-			// echo 'ada';
 			include $filePath;
 			
 			$createObj = new $this->page();
@@ -295,9 +283,16 @@ class Controller extends Application{
 	function log($action='surf',$comment)
 	{
 		$getHelper = new helper_model;
-
 		$getHelper->logActivity($action,$comment);
+	}
 
+	function carouselIndex(){
+		$this->loadModel('contentHelper');
+		$getHelper = new contentHelper;
+		$where = "n_status = '1'";
+		$data = $getHelper->getData(TRUE,'*','floraINA_banner',$where);
+		if($data)return $data;
+		return false;
 	}
 	
 }
