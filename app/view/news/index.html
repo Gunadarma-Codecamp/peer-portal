@@ -45,7 +45,7 @@
                     {foreach $dataNews as $getNews}
                     <div class="col-md-4 latest_news">
                         <a href="{$basedomain}news/view/?id={$getNews.id}" title="{$getNews.title}">
-                            <img src="{$basedomain}public_assets/news/{$getFeature.image}" class="img-responsive">
+                            <img src="{$basedomain}public_assets/news/{$getNews.image}" class="img-responsive">
                         </a>
                         <div class="time-ago"><p>{$getNews.posted_date}</p></div>
                         <a href="{$basedomain}news/view/?id={$getNews.id}" class="title">{$getNews.title}</a>
