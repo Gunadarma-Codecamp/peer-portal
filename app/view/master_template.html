@@ -1,0 +1,33 @@
+{include file="template/meta.html"}
+<body>
+	<!-- RUNNING GLOBAL VAR -->
+	<script>
+		var basedomain = "{$basedomain}";
+	</script>
+	
+    {if $page.page=='home'}
+    <!-- NAVBAR INDEX -->
+    {include file="template/navbar.html"}
+    
+    <!-- CAROUSEL INDEX -->
+    {include file="template/carousel.html"}
+    
+    
+    {else}
+    <!-- HEADER DEFAULT -->
+    {include file="template/header.html"}
+    
+    <!-- NAVBAR DEFAULT -->
+    {include file="template/navbar_default.html"}
+    {/if}
+    
+	
+	
+	<!-- CONTENT -->
+	{$content}
+	
+	<!-- FOOTER -->
+    {include file="template/footer.html"}
+	
+</body> 
+</html>

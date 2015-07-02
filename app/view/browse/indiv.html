@@ -1,0 +1,76 @@
+<div class="container flora-container">
+    <div class="flora-content">
+    {if (!empty($title[0]->sp))}
+        <h3>$title[0]->sp</h3>
+    {/if}
+        <table id="dataTaxon" class="table table-striped table-bordered flora-table table-curved" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>Indiv Code</th>
+                    <th class="col-md-3">Location</th>
+                    <th>Creator</th>
+                    <th class="col-md-6">Images</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+     
+            <tbody>
+                {foreach $data as $getTaxon}
+                <tr>
+                    <td>{$getTaxon['indiv']->id}</td>
+                    <td>{$getTaxon['indiv']->locality}</td>
+                    <td>{$getTaxon['indiv']->name}</td>
+                    <td>
+                        <div id="links-1">
+                            {foreach $getTaxon['img'] as $getImg}
+                            <a href="{$appdomain}public_assets/img/500px/{$getImg->md5sum}.500px.jpg" title="{$getImg->plantpart}" data-gallery="#blueimp-gallery-links-1">
+                                <img src="{$appdomain}public_assets/img/100px/{$getImg->md5sum}.100px.jpg" />
+                            </a>
+                            {/foreach}
+                        </div>
+                    </td>
+                    <td>
+                        <a href="{$basedomain}browse/indivDetail/?id={$getTaxon['indiv']->indivID}" class="btn flora-btn">Detail</a>
+                    </td>
+                </tr>
+                {/foreach}
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

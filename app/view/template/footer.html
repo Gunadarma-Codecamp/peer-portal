@@ -1,0 +1,86 @@
+    <div class="partner flora-content">
+        <div class="container">
+        <p>Joint Research Between:</p>
+        <div class="col-sm-6">
+            <div class="col-sm-3">
+                <img src="{$basedomain}assets/img/logo/gundar-logo.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-3">
+                <img src="{$basedomain}assets/img/logo/tau-logo.png" class="img-responsive" />
+            </div>
+            <div class="col-sm-3">
+                <img src="{$basedomain}assets/img/logo/aa-logo.png" class="img-responsive" />
+            </div>
+        </div>
+        </div> 
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </div>
+    </div>
+
+    
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <!-- Jquery JS -->
+    <script type="text/javascript" src="{$basedomain}assets/js/jquery-2.1.0.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="{$basedomain}plugin/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+    
+    <!-- Bootstrap Image Gallery JS -->
+    <script src="{$basedomain}plugin/bootstrap-image-gallery-3.1.1/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="{$basedomain}plugin/bootstrap-image-gallery-3.1.1/js/bootstrap-image-gallery.min.js"></script>
+    
+    <!-- Datatables JS -->
+    <script src="{$basedomain}plugin/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="{$basedomain}plugin/datatable/js/dataTables.bootstrap.js"></script>
+    
+    <!-- Custom FloraKalbar JS
+    <script type="text/javascript" src="{$basedomain}assets/js/ajaxUpload.js"></script>
+    <script type="text/javascript" src="{$basedomain}assets/js/ajaxLogin.js"></script>-->
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //INITIATE MINI CAROUSEL
+            $('#miniCarousel').carousel({
+              interval: 10000
+            })
+            
+            $('.mini-carousel .item').each(function(){
+              var next = $(this).next();
+              if (!next.length) {
+                next = $(this).siblings(':first');
+              }
+              next.children(':first-child').clone().appendTo($(this));
+              
+              for (var i=0;i<4;i++) {
+                next=next.next();
+                if (!next.length) {
+                	next = $(this).siblings(':first');
+              	}
+                
+                next.children(':first-child').clone().appendTo($(this));
+              }
+            });
+            
+            // INITIATE GALLERY PLUGIN
+            $('#blueimp-gallery').toggleClass('blueimp-gallery-controls', true);
+            
+            // INITIATE DATATABLE
+            $('#dataTaxon,#table-obs,#table-det').dataTable();
+            
+            // INITIATE TABS
+            $('#indivDetail-tabs a:first').tab('show');
+        });
+    </script>
+    
+  </body>
+</html>

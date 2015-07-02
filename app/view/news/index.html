@@ -1,0 +1,125 @@
+<div class="container flora-container">
+    <div class="flora-content">
+        <div class="row">
+            <div class="col-md-12">
+                
+            <!-- NEWS CAROUSEL -->
+                <div id="newsCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                    <!--.Carousel Item-->
+                    {foreach $dataFeature as $getFeature}
+                        {if $getFeature@first}
+                            <div class="item active">
+                        {else}
+                            <div class="item">
+                        {/if}
+                            <a href="{$basedomain}news/view/?id={$getFeature.id}"><img class="attachment-feature-home" src="{$getFeature.file}" style="width:100%;"></a>
+                            <h4><a href="{$basedomain}news/view">FEATURED</a></h4>
+                            
+                            <div class="carousel-caption">
+                                <p>{$getFeature.brief}</p>
+                            </div>
+                        </div><!--/.Carousel Item-->
+                    {/foreach}
+                    </div>
+                      
+                     <!--.Carousel Arrows-->
+                    <a class="left carousel-control" href="#newsCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+                    <a class="right carousel-control" href="#newsCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                    <!--/.Carousel Arrows-->
+                </div> 
+            <!-- END NEWS CAROUSEL-->
+
+            </div> 
+        </div>
+    </div>
+    
+    <div class="flora-content">
+        <div class="row">
+            <div class="col-md-12" style="padding-right: 10px;">
+                <h3>NEWS</h3>
+
+            <!-- LATEST NEWS -->  
+                <div class="row">  
+
+                    {foreach $dataNews as $getNews}
+                    <div class="col-md-4 latest_news">
+                        <a href="{$basedomain}news/view/?id={$getNews.id}" title="{$getNews.title}">
+                            <img src="{$getNews.file}" class="img-responsive">
+                        </a>
+                        <div class="time-ago"><p>{$getNews.posted_date}</p></div>
+                        <a href="{$basedomain}news/view/?id={$getNews.id}" class="title">{$getNews.title}</a>
+                        <p class="brief">{$getNews.brief}</p>
+                    </div>
+                    {/foreach}
+                    
+                    {*}
+                    <div class="col-md-4 latest_news">
+                        <a href="{$basedomain}news/view" title="Banana">
+                            <img src="{$basedomain}public_assets/news/images/1.JPG" class="img-responsive">
+                        </a>
+                        <div class="time-ago"><p>1 hour ago</p></div>
+                        <a href="{$basedomain}news/view" class="title">Donec id elit non mi porta gravida at eget metus. Fusce dapibus...</a>
+                        <p class="brief">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit, lacus et tempus fermentum, erat orci venenatis nibh, consectetur commodo lectus erat id arcu.
+                        </p>
+                    </div>
+                    {/*}
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="{$basedomain}news/list_news/?cat=0" class="btn flora-btn news-btn pull-right">More...</a>
+                    </div>
+                </div>
+            <!-- END LATEST NEWS --> 
+
+            </div>
+        </div>
+    </div>
+
+    <div class="flora-content">
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 10px;">
+            
+                <h3>ANNOUNCEMENT</h3>
+
+            <!-- LATEST NEWS -->  
+                <div class="row">  
+                    {foreach $dataAnnouncement as $getAnnounce}
+                    <div class="col-md-4 latest_news">
+                        <a href="{$basedomain}news/view/?id={$getAnnounce.id}" title="{$getAnnounce.title}">
+                            <img src="{$getAnnounce.file}" class="img-responsive">
+                        </a>
+                        <div class="time-ago"><p>{$getAnnounce.posted_date}</p></div>
+                        <a href="{$basedomain}news/view/?id={$getAnnounce.id}" class="title">{$getAnnounce.title}</a>
+                        <p class="brief">{$getAnnounce.brief}</p>
+                    </div>
+                    {/foreach}
+                    
+                    {*}
+                    <div class="col-md-4 latest_news">
+                        <a href="{$basedomain}news/view" title="Banana">
+                            <img src="{$basedomain}public_assets/news/images/1.JPG" class="img-responsive">
+                        </a>
+                        <div class="time-ago"><p>1 hour ago</p></div>
+                        <a href="{$basedomain}news/view" class="title">Donec id elit non mi porta gravida at eget metus. Fusce dapibus...</a>
+                        <p class="brief">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam suscipit, lacus et tempus fermentum, erat orci venenatis nibh, consectetur commodo lectus erat id arcu.
+                        </p>
+                    </div>
+                    {/*}
+
+                </div>
+            <!-- END LATEST NEWS --> 
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="{$basedomain}news/list_news/?cat=1" class="btn flora-btn news-btn pull-right">More...</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
