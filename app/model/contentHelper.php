@@ -9,7 +9,7 @@ class contentHelper extends Database {
 			$sql = "SELECT {$select} FROM {$table}";
 		}
 		//pr($sql);
-		$res = $this->fetch($sql,1,1);
+		$res = $this->fetch($sql,1,0);
 		if ($res) return $res;
 		return false;
 	}
@@ -22,7 +22,7 @@ class contentHelper extends Database {
 			$sql = "SELECT {$select} FROM {$table} ORDER BY posted_date DESC LIMIT {$limit}";
 		}
 		//pr($sql);
-		$res = $this->fetch($sql,1,1);
+		$res = $this->fetch($sql,1,0);
 		if ($res) return $res;
 		return false;
 	}
