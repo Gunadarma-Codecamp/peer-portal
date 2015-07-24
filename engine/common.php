@@ -145,6 +145,7 @@ function uploadFile($data,$path=null,$ext=''){
 	$shufflefilename = md5(str_shuffle('codekir-v0.3'.$CONFIG[$key]['max_filesize']));
 	$filename = $shufflefilename.'.'.$getExt;
 	
+	logFile($pathFile);
 	/* Host Folder path */
 	list($root_path, $dummy) = explode('admin',$CONFIG[$key]['root_path']);
 	list($dummy, $pathFolder) = explode($root_path,$pathFile);

@@ -174,6 +174,11 @@ class Database
 		
 		
 	}
+
+	function escape_string($data)
+	{
+		return mysql_real_escape_string($data);
+	}
         
         /* fungsi yang digunakan untuk execute query pada oracle secara otomatis akan di commit
          * jika fungsi ini dijalankan maka data yang di input tidak akan bisa di rollback kembali
