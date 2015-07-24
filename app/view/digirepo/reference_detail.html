@@ -17,7 +17,11 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <a href="{$get.files}">
-                        <img src="{$get.file_icon}" class="img-responsive" style="margin-bottom: 10px;" />
+                        {if $get.icon}
+                            <img src="{$basedomain}/public_assets/digirepo/icon/{$get.icon}" class="img-responsive" style="margin-bottom: 10px;" />
+                        {else}
+                            <img src="{$basedomain}/assets/img/pdf_default.png" class="img-responsive" style="margin-bottom: 10px;" />
+                        {/if}
                         Download ({$get.filesize})
                     </a>
                 </div>

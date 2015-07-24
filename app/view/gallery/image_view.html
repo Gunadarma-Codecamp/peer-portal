@@ -8,8 +8,8 @@
         <div class="row" id="links">
             {foreach $data as $get}
             <div class="col-md-3 col-xs-6">
-                <a href="{$get.files}" title="{$title}" data-gallery>
-                    <img src="{$get.files}" class="flora-gallery imageClip">
+                <a href="{$basedomain}public_assets/gallery/images/{$get.content}" title="{$title}" data-gallery>
+                    <img src="{$basedomain}public_assets/gallery/images/{$get.content}" class="flora-gallery imageClip">
                 </a>
             </div>
             {/foreach}

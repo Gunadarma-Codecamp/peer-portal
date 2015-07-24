@@ -1,6 +1,9 @@
 body.default{
     background-color: #efefef;
 }
+a{
+    color: #282828;
+}
 .flora-separator{border: 1px solid #00ADBB;}
 .navbar{
     color: rgba(255, 255, 255, 0.701961);
@@ -127,18 +130,22 @@ body.default{
 
 .flora-container{
     min-height: 280px;
-    max-width: 1000px;
+    max-width: 1024px;
 }
 
 @media (min-width: 1200px){
     .container {
-      width: 1170px !important;
+      width: 1024px !important;
     }
 }
 
 @media (min-width: 992px){
     .container {
       width: 1000px;
+    }
+    .navbar-wrapper .container {
+      padding-right: 0;
+      padding-left: 5px;
     }
 }
 

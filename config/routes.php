@@ -13,6 +13,8 @@ $ROUTES = array(
                 'digirepo',
                 'gallery',
                 'news',
+                'citizenScientist',
+                'expedition',
                 'activate'               
                 );
 ?>

@@ -70,8 +70,8 @@
 									<td><a href="{$basedomain}digirepo/addlink/?id={$var.id}" data-toggle="tooltip" data-placement="right" title="Edit or view {$var.title}">{$var.title}</a></td>
 									<td><a href="{$var.brief}" target="_blank">{$var.brief}</a></td>
 									<td style="width: 80px;">
-                                        {if ($var.file)}
-                                        <img class="img-responsive thumbnail" src="{$var.file}" />
+                                        {if ($var.image)}
+                                        <img class="img-responsive thumbnail" src="{$appdomain}public_assets/digirepo/linksIcon/{$var.image}" />
                                         {/if}
                                     </td>
 									<td style="color:{$var.status_color}">{$var.n_status}</td>

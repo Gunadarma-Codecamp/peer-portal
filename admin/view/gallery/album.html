@@ -40,7 +40,7 @@
 						{foreach $data as $var}
 	                    <div class="col-md-4 portfolio-item">
 	                        <a href="{$basedomain}gallery/add/?album={$var.id}">
-	                            <img class="img-responsive thumbnail" src="{$var.file}" alt="" />
+	                            <img class="img-responsive thumbnail" src="{$appdomain}public_assets/gallery/images/{$var.image}" alt="" />
 	                        </a>
 	                        <h3>
 								<input type="checkbox" class="icheck-input" name="ids[]" value="{$var.id}" onchange="return AreAnyCheckboxesChecked();" />

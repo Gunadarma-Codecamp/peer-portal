@@ -20,11 +20,18 @@ class home extends Controller {
 	}
 	
 	function index(){
-		$where = "n_status = '1'";
-		$data = $this->models->getData(TRUE,'*','floraINA_banner',$where);
-		//pr($data);
-		$this->view->assign('banner',$data);
-		$this->view->assign('banner1','AAA');
+		global $CONFIG;
+        //Get all data taxon
+        $indivImages = jsDecode($CONFIG['default']['app_url'].'services/taxon/dataIndivLimit');
+        if(empty($indivImages)){
+            $this->view->assign('noData','empty');
+        }
+        else{
+            $this->view->assign('noData','data existed');
+        }
+        $this->view->assign('dataImage',$indivImages->result);
+        //pr($indivImages->result);
+
     	return $this->loadView('home');
     }
 }
