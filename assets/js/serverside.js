@@ -21,7 +21,7 @@
                 "bProcessing": true,
                 "bServerSide": true,
                 "sAjaxSource": appdomain+"services/"+urlApi,
-                "fnServerData": function( sUrl, aoData, fnCallback ) {
+                /*"fnServerData": function( sUrl, aoData, fnCallback ) {
 					$.ajax( {
 						"url": sUrl,
 						"data": aoData,
@@ -29,7 +29,7 @@
 						"dataType": "jsonp",
 						"cache": false
 					} );
-				}
+				}*/
 
             });
             
