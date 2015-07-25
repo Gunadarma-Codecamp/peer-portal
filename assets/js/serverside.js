@@ -21,16 +21,15 @@
                 "bProcessing": true,
                 "bServerSide": true,
                 "sAjaxSource": appdomain+"services/"+urlApi,
-                "fnServerData": function ( sSource, aoData, fnCallback, oSettings ) {
-			      oSettings.jqXHR = $.ajax( {
-			        "dataType": 'json',
-			        "type": "GET",
-			        "url": sSource,
-			        "data": aoData,
-			        "success": fnCallback,
-			        "contentType": "application/json; charset=utf-8"
-			      } );
-			    }
+                "fnServerData": function( sUrl, aoData, fnCallback ) {
+					$.ajax( {
+						"url": sUrl,
+						"data": aoData,
+						"success": fnCallback,
+						"dataType": "jsonp",
+						"cache": false
+					} );
+				}
 
             });
             
