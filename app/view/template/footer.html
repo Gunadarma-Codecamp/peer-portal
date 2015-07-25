@@ -64,6 +64,10 @@
     
     <script src="{$basedomain}assets/js/serverside.js"></script>
     <script type="text/javascript">
+
+    var page = "{$page.page}";
+    var func = "{$page.function}";
+
     {literal}
         $(document).ready(function() {
             //INITIATE MINI CAROUSEL
@@ -99,8 +103,16 @@
 
 
             /* start param datatables */
-            setParamdataTables('taxon');
 
+            if (func == 'dataTaxon'){
+                // ket param : controller, fungsiConfig, limit data, id table 
+                setParamdataTables('taxon', 'taxonConfig', 10, 'dataTaxon');
+            }else if (func == 'dataLocation'){
+                setParamdataTables('taxon', 'locationConfig', 10, 'dataLocation');
+            }else{
+                setParamdataTables('taxon', 'personConfig', 10, 'dataPerson');
+            }
+            
             /* end param datatables */
         });
 

@@ -1,15 +1,11 @@
 <div class="container flora-container">
     <div class="flora-content">
-        {if $noData eq 'empty'}
-            <a href="#" class="btn florakb-btn pull-right" onClick="history.back();return false;"><span class="glyphicon glyphicon-chevron-left"></span> Kembali</a>
-            <br />
-            <i>Tidak ada data</i>
-        {else}
+        
 
-        <table id="dataTaxon" class="table table-striped table-bordered flora-table table-curved" cellspacing="0" width="100%">
+        <table id="dataPerson" class="table table-striped table-bordered flora-table table-curved" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Nama</th>
                     <th>Twitter</th>
                     <th>Website</th>
@@ -20,21 +16,17 @@
             </thead>
      
             <tbody>
-                {foreach $data as $dataPerson}
                 <tr>
-                    <td>{$dataPerson->id}</td>
-                    <td>{$dataPerson->name}</td>
-                    <td><a href="http://twitter.com/{$dataPerson->twitter}">{$dataPerson->twitter}</a></td>
-                    <td>{$dataPerson->website}</td>
-                    <td>{$dataPerson->institutions}</td>
-                    <td>{$dataPerson->project}</td>
-                    <td>
-                        <a href="{$basedomain}browse/indiv/?id={$dataPerson->id}&&action=indivPerson" class="btn flora-btn">Detail</a>
-                    </td>
+                    <!-- <th>ID</th> -->
+                    <th>Nama</th>
+                    <th>Twitter</th>
+                    <th>Website</th>
+                    <th>Institusi</th>
+                    <th>Proyek</th>
+                    <th>Aksi</th>
                 </tr>
-                {/foreach}
             </tbody>
         </table>
-        {/if}
+        
     </div>
 </div>
