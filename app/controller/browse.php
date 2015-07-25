@@ -22,9 +22,9 @@ class browse extends Controller {
 	function dataTaxon(){
     	global $CONFIG;
         $listAll = array();
-
+        header('Access-Control-Allow-Origin: *');
         //Get all data taxon
-        $taxon = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataTaxon');
+        /*$taxon = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataTaxon');
         
         for($i=0;$i<count($taxon->result);$i++){
             //Get taxon's 'images
@@ -37,7 +37,7 @@ class browse extends Controller {
         else{
             $this->view->assign('noData','data existed');
         }
-        $this->view->assign('data',$listAll);
+        $this->view->assign('data',$listAll);*/
         return $this->loadView('browse/dataTaxon');
     }
 
