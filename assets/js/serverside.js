@@ -9,6 +9,8 @@
         
         var data ="";
         var hasil ;
+
+        console.log(peerkalbar_domain+"services/"+urlApi);
         setTimeout(function(){ 
 
             for (i = 0; i<=total; i++){
@@ -20,7 +22,7 @@
 
                 "bProcessing": true,
                 "bServerSide": true,
-                "sAjaxSource": appdomain+"services/"+urlApi,
+                "sAjaxSource": peerkalbar_domain+"services/"+urlApi,
                 /*"fnServerData": function( sUrl, aoData, fnCallback ) {
 					$.ajax( {
 						"url": sUrl,

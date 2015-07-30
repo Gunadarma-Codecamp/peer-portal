@@ -20,12 +20,13 @@ class Controller extends Application{
 	function index()
 	{
 		
-		global $CONFIG, $LOCALE, $basedomain, $appdomain, $title, $DATA, $app_domain, $CODEKIR;
+		global $CONFIG, $LOCALE, $basedomain, $peerkalbar_domain, $citizenScientist_domain, $title, $DATA, $app_domain, $CODEKIR;
 		$filePath = APP_CONTROLLER.$this->page.$this->php_ext;
 		
 		$this->view = $CODEKIR['smarty'];
 		$this->view->assign('basedomain',$basedomain);
-        $this->view->assign('appdomain',$appdomain);
+        $this->view->assign('peerkalbar_domain',$peerkalbar_domain);
+        $this->view->assign('citizenScientist_domain',$citizenScientist_domain);
 		$this->view->assign('page',$DATA[$this->configkey]);
 		$this->view->assign('carouselIndex',$this->carouselIndex());
 		
