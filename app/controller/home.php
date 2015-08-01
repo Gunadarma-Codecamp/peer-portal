@@ -22,7 +22,7 @@ class home extends Controller {
 	function index(){
 		global $CONFIG;
         //Get all data taxon
-        $indivImages = jsDecode($CONFIG['default']['app_url'].'services/taxon/dataIndivLimit');
+        $indivImages = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/dataIndivLimit');
         if(empty($indivImages)){
             $this->view->assign('noData','empty');
         }
