@@ -44,6 +44,7 @@ class browse extends Controller {
     function dataLocation(){
         global $CONFIG;
         //Get all data taxon
+        /**
         $location = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataLocation');
         if(empty($location)){
             $this->view->assign('noData','empty');
@@ -52,12 +53,14 @@ class browse extends Controller {
             $this->view->assign('noData','data existed');
         }
         $this->view->assign('data',$location->result);
+        **/
         return $this->loadView('browse/dataLocation');
     }
 
     function dataPerson(){
         global $CONFIG;
         //Get all data taxon
+        /**
         $person = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataPerson');
         if(empty($person)){
             $this->view->assign('noData','empty');
@@ -66,35 +69,49 @@ class browse extends Controller {
             $this->view->assign('noData','data existed');
         }
         $this->view->assign('data',$person->result);
+        **/
         return $this->loadView('browse/dataPerson');
     }
     
+    function dataIndiv(){
+        global $CONFIG;
+        $person = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getDataIndiv');
+        if(empty($person)){
+            $this->view->assign('noData','empty');
+        }
+        else{
+            $this->view->assign('noData','data existed');
+        }
+        $this->view->assign('data',$person->result);
+        return $this->loadView('browse/dataIndiv');
+    }
+
     function indiv(){
         global $CONFIG;
         $id = $_GET['id'];
         $action = $_GET['action'];
-        
+
         if($action=='indivTaxon'){
             //get taxon name
-            $title = jsDecode($CONFIG['default']['app_url'].'services/taxon/getTitle/?id='.$id);
+            $title = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getTitle/?id='.$id);
             //get data indiv
-            $getIndiv = jsDecode($CONFIG['default']['app_url'].'services/taxon/getIndivTaxon/?id='.$id);
+            $getIndiv = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getIndivTaxon/?id='.$id);
             //pr($getIndiv);exit;
         }
         if($action=='indivLocn'){
             $title='';
             //get data indiv
-            $getIndiv = jsDecode($CONFIG['default']['app_url'].'services/taxon/getIndivLocation/?id='.$id);
+            $getIndiv = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getIndivLocation/?id='.$id);
         }
         if($action=='indivPerson'){
             $title='';
             //get data indiv
-            $getIndiv = jsDecode($CONFIG['default']['app_url'].'services/taxon/getIndivPerson/?id='.$id);
+            $getIndiv = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getIndivPerson/?id='.$id);
         }
         $listAll = array();
         for($i=0;$i<count($getIndiv->result);$i++){
             //Get indiv's 'images
-            $img = jsDecode($CONFIG['default']['app_url'].'services/taxon/getImgIndiv/?id='.$getIndiv->result[$i]->indivID);
+            $img = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getImgIndiv/?id='.$getIndiv->result[$i]->indivID);
             $listAll[]= array('indiv'=>$getIndiv->result[$i],'img'=>$img);
         }
         
@@ -114,13 +131,13 @@ class browse extends Controller {
         global $CONFIG;
         $indivID = $_GET['id'];
         //get whole data indiv detail
-        $indivDetail = jsDecode($CONFIG['default']['app_url'].'services/taxon/detailIndiv/?id='.$indivID);
+        $indivDetail = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/detailIndiv/?id='.$indivID);
         //get determinant from selected indiv
-        $indivDeterminant = jsDecode($CONFIG['default']['app_url'].'services/taxon/dataDetIndiv/?id='.$indivID);
+        $indivDeterminant = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/dataDetIndiv/?id='.$indivID);
         //get all images from indiv selected
-        $indivImages = jsDecode($CONFIG['default']['app_url'].'services/taxon/getAllImgIndiv/?id='.$indivID);
+        $indivImages = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getAllImgIndiv/?id='.$indivID);
         //get all observations from indiv selected
-        $indivObs = jsDecode($CONFIG['default']['app_url'].'services/taxon/dataObsIndiv/?id='.$indivID);
+        $indivObs = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/dataObsIndiv/?id='.$indivID);
         
         /**
         //get list enum habit
