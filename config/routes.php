@@ -15,6 +15,7 @@ $ROUTES = array(
                 'news',
                 'expedition',
                 'publication',
-                'activate'               
+                'activate',
+                'picture_book'               
                 );
 ?>
