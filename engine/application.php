@@ -104,7 +104,7 @@ class Application {
 	function loadView($fileName='home', $data="")
 	{
 		
-		global $CONFIG, $basedomain, $peerkalbar_domain, $citizenScientist_domain;
+		global $CONFIG, $basedomain, $appdomain, $peerkalbar_domain, $citizenScientist_domain;
 		
 		if ($fileName == "") return false;
 		if (array_key_exists('admin', $CONFIG)){
@@ -127,6 +127,7 @@ class Application {
 		if (!$this->view) $this->view = $this->setSmarty();
 		
 		$this->view->assign('basedomain',$basedomain);
+		$this->view->assign('appdomain',$appdomain); //admin config
         $this->view->assign('peerkalbar_domain',$peerkalbar_domain);
         $this->view->assign('citizenScientist_domain',$citizenScientist_domain);
 		

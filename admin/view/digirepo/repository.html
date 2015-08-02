@@ -11,7 +11,7 @@
 	}
 </script>
 <div id="content-header">
-	<h1>Repository</h1>
+	<h1>{if $smarty.get.cat == '1'}References{elseif $smarty.get.cat == '2'}Repository{elseif $smarty.get.cat =='3'}Publication{/if}</h1>
 </div> <!-- #content-header -->	
 
 <div id="content-container">
