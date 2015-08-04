@@ -16,7 +16,8 @@
             <div class="col-md-4 text-center" style="margin-top: 10px;">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <a href="{$get.files}">
+                    {if {$get.files}}
+                    <a href="{$basedomain}public_assets/digirepo/{$get.filename}">
                         {if $get.icon}
                             <img src="{$basedomain}/public_assets/digirepo/icon/{$get.icon}" class="img-responsive" style="margin-bottom: 10px;" />
                         {else}
@@ -24,6 +25,7 @@
                         {/if}
                         Download ({$get.filesize})
                     </a>
+                    {/if}
                 </div>
                 <div class="col-md-2"></div>
             </div>
