@@ -15,24 +15,13 @@
             </thead>
      
             <tbody>
-                {foreach $data as $get}
-                
                 <tr>
-                    <td>{$get->indivCode}</td>
-                    <td>{$get->locality}</td>
-                    <td>{$get->pendata}</td>
-                    <td>
-                        <div id="links-1">
-                            {foreach $get->img as $getImg}
-                            <a href="{$peerkalbar_domain}public_assets/img/500px/{$getImg}.500px.jpg" title="{$getImg->plantpart}" data-gallery="#blueimp-gallery-links-1">
-                                <img src="{$peerkalbar_domain}public_assets/img/100px/{$getImg}.100px.jpg" />
-                            </a>
-                            {/foreach}
-                        </div>
-                    </td>
-                    <td><a href="{$basedomain}browse/indivDetail/?id={$get->indivCode}" class="btn flora-btn">Detail</a></td>
+                    <th>Indiv Code</th>
+                    <th class="col-md-3">Location</th>
+                    <th>Creator</th>
+                    <th class="col-md-6">Images</th>
+                    <th>Action</th>
                 </tr>
-                {/foreach}
             </tbody>
         </table>
         

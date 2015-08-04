@@ -75,14 +75,14 @@ class browse extends Controller {
     
     function dataIndiv(){
         global $CONFIG;
-        $person = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getDataIndiv');
-        if(empty($person)){
-            $this->view->assign('noData','empty');
-        }
-        else{
-            $this->view->assign('noData','data existed');
-        }
-        $this->view->assign('data',$person->result);
+        // $person = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getDataIndiv');
+        // if(empty($person)){
+        //     $this->view->assign('noData','empty');
+        // }
+        // else{
+        //     $this->view->assign('noData','data existed');
+        // }
+        // $this->view->assign('data',$person->result);
         return $this->loadView('browse/dataIndiv');
     }
 

@@ -10,7 +10,7 @@
         var data ="";
         var hasil ;
 
-        console.log(peerkalbar_domain+"services/"+urlApi);
+        // console.log(peerkalbar_domain+"services/"+urlApi);
         setTimeout(function(){ 
 
             for (i = 0; i<=total; i++){
@@ -42,6 +42,7 @@
     function setParamdataTables(controller, paramFunc, limitData, idTable)
     {
     	var param = controller+"/handleRequest/?function="+paramFunc;
+        // console.log(param);
 	    dTableParam(idTable, param, limitData);
     }
 	

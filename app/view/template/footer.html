@@ -109,8 +109,10 @@
                 setParamdataTables('taxon', 'taxonConfig', 10, 'dataTaxon');
             }else if (func == 'dataLocation'){
                 setParamdataTables('taxon', 'locationConfig', 10, 'dataLocation');
-            }else{
+            }else if (func == 'dataPerson'){
                 setParamdataTables('taxon', 'personConfig', 10, 'dataPerson');
+            }else{
+                setParamdataTables('taxon', 'indivConfig', 10, 'dataIndiv');
             }
             
             /* end param datatables */
