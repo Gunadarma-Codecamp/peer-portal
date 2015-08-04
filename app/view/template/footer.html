@@ -57,6 +57,10 @@
     <!-- Datatables JS -->
     <script src="{$basedomain}plugin/datatable/js/jquery.dataTables.min.js"></script>
     <script src="{$basedomain}plugin/datatable/js/dataTables.bootstrap.js"></script>
+
+    <!-- Bootstrap Modal JS -->
+    <script src="{$basedomain}plugin/bootstrap-modal-v2.2.5/js/bootstrap-modalmanager.js"></script>
+    <script src="{$basedomain}plugin/bootstrap-modal-v2.2.5/js/bootstrap-modal.js"></script>
     
     <!-- Custom FloraKalbar JS
     <script type="text/javascript" src="{$basedomain}assets/js/ajaxUpload.js"></script>
@@ -101,9 +105,31 @@
             // INITIATE TABS
             $('#indivDetail-tabs a:first').tab('show');
 
+            //Add Print List
+            $('a#btn-printConfirm').click(function(){
+                $('#modal-printConfirm').modal('show');
+            });
+            
+            //Select picture
+            $('.foto_indiv').click(function(){
+                $(this).toggleClass('selected');
+                var checkBoxes = $(this).find('input[type="checkbox"]');
+                checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+                var sumCheckbox = $("input:checkbox:checked").length;
+                $('#totalPicture').html(sumCheckbox+" selected picture.");
+            });
+
+            //select All picture
+            $('#btn-selectAllPhoto').click(function(){
+                $('.foto_indiv').toggleClass('selected');
+                var checkBoxes = $('input[type="checkbox"]');
+                checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+                var sumCheckbox = $("input:checkbox:checked").length;
+                $('#totalPicture').html(sumCheckbox+" selected picture.");
+            });
+
 
             /* start param datatables */
-
             if (func == 'dataTaxon'){
                 // ket param : controller, fungsiConfig, limit data, id table 
                 setParamdataTables('taxon', 'taxonConfig', 10, 'dataTaxon');

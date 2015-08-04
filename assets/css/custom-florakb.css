@@ -1,10 +1,17 @@
 body.default{
     background-color: #efefef;
 }
+
 a{
     color: #282828;
 }
+
 .flora-separator{border: 1px solid #00ADBB;}
+
+.no-border{
+    border: none;
+}
+
 .navbar{
     color: rgba(255, 255, 255, 0.701961);
     background-image: url(../img/bg_noise.png);
@@ -76,6 +83,10 @@ a{
 .flora-btn:hover{
     background-color: #0095a2;
     border: 1px solid #0095a2;
+}
+
+.action .flora-btn{
+    float: left;
 }
 
 .flora-navbar{
@@ -358,6 +369,15 @@ a{
     .imageClip{
         height: auto;
     }
+}
+
+.foto_indiv{
+    cursor: pointer;
+    background-color: #FFF;
+}
+
+.foto_indiv.selected{
+    background-color: #CCC;
 }
 /* END GALLERY CSS*/
 

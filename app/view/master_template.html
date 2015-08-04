@@ -1,4 +1,10 @@
-{if $page.page=='picture_book'}
+{if $page.page=='picture_book' && $page.function=='template_cover'}
+	<body>
+		{$content}
+	</body> 
+	</html>
+
+{elseif $page.page=='picture_book' && $page.function=='template_content'}
 	<body>
 		{$content}
 	</body> 
