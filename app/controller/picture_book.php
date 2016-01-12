@@ -20,6 +20,8 @@ class picture_book extends Controller {
 	}
 	
 	function template_cover(){
+
+		
 		return $this->loadView('picture_book/cover');
     }
 
