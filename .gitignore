@@ -7,7 +7,6 @@ libs/smarty/*
 libs/excel/*
 logs/*
 cache/*
-plugin/*
 admin/cache/*
 admin/config/config.php
 admin/tmp/*
