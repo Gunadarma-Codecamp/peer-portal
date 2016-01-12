@@ -28,6 +28,10 @@ class picture_book extends Controller {
     function template_content(){
 		return $this->loadView('picture_book/content');
     }
+
+    function list_picture(){
+    	return $this->loadView('picture_book/list_picture');
+    }
 }
 
 ?>
