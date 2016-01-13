@@ -86,10 +86,10 @@ class Database
 						if ($connect){
 					
 							if ($CONFIG[$this->keyconfig]['app_status'] == 'Production'){
-								@mysqli_select_db(trim($dbConfig[$dbuse]['name']), $connect) or die ($this->db_error('No Database Selected'));	
+								@mysqli_select_db($connect, trim($dbConfig[$dbuse]['name'])) or die ($this->db_error('No Database Selected'));	
 							
 							}else{
-								mysqli_select_db(trim($dbConfig[$dbuse]['name']),$connect) or die ($this->db_error('No Database Selected'));
+								mysqli_select_db($connect, trim($dbConfig[$dbuse]['name'])) or die ($this->db_error('No Database Selected'));
 								
 								// mysql_select_db('florakalbar', $connect) or die ($this->db_error('No Database Selected'));
 								
@@ -126,7 +126,7 @@ class Database
 		global $dbConfig, $CONFIG;
 		$this->keyconfig = $this->setAppKey();
 		
-		$this->open_connection($dbuse);
+		$connect = $this->open_connection($dbuse);
                 // cek server database yang dipakai
 		switch ($dbConfig[$dbuse]['server'])
 		{
@@ -136,7 +136,7 @@ class Database
 						$this->var_query = @mysqli_query($data);
 
 				}else{
-						$this->var_query = mysqli_query($data) or die ($this->error($data,$dbuse));
+						$this->var_query = mysqli_query($connect, $data) or die ($this->error($data,$dbuse));
 				}
 				break;
 			
