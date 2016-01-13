@@ -17,6 +17,7 @@ class Database
 	protected $dbConfig = array();
 	protected $keyconfig = null;
 	var $link = false;
+	var $isPDO = false;
 	
 	public function __construct() {
 		
@@ -62,33 +63,47 @@ class Database
 				{
 					
 					if ($CONFIG[$this->keyconfig]['app_status'] == 'Production'){
-						$connect = @mysql_connect(trim($dbConfig[$dbuse]['host']), $dbConfig[$dbuse]['user'], $dbConfig[$dbuse]['pass']) or die ($this->db_error('Connection error'));
-					
-					}else{
-						$connect = @mysql_connect(trim($dbConfig[$dbuse]['host']), $dbConfig[$dbuse]['user'], $dbConfig[$dbuse]['pass']) or die ($this->db_error('Connection error'));
-						
-					}
-					
-					
-					if ($connect){
-					
-						if ($CONFIG[$this->keyconfig]['app_status'] == 'Production'){
-							@mysql_select_db(trim($dbConfig[$dbuse]['name']), $connect) or die ($this->db_error('No Database Selected'));	
-						
+						if ($this->isPDO){
+							$connect = new PDO("mysql:host={$dbConfig[$dbuse]['host']};dbname={$dbConfig[$dbuse]['name']}", "{$dbConfig[$dbuse]['user']}", "{$dbConfig[$dbuse]['pass']}");
 						}else{
-							mysql_select_db(trim($dbConfig[$dbuse]['name']),$connect) or die ($this->db_error('No Database Selected'));
-							
-							// mysql_select_db('florakalbar', $connect) or die ($this->db_error('No Database Selected'));
-							
+							$connect = @mysqli_connect(trim($dbConfig[$dbuse]['host']), $dbConfig[$dbuse]['user'], $dbConfig[$dbuse]['pass']) or die ($this->db_error('Connection error'));
+						
 						}
 						
-						$this->link = $connect;
-						return $connect;
-					
 					}else{
-					
-						return false;
+						if ($this->isPDO){
+							$connect = new PDO("mysql:host={$dbConfig[$dbuse]['host']};dbname={$dbConfig[$dbuse]['name']}", "{$dbConfig[$dbuse]['user']}", "{$dbConfig[$dbuse]['pass']}");
+						}else{
+							$connect = mysqli_connect(trim($dbConfig[$dbuse]['host']), $dbConfig[$dbuse]['user'], $dbConfig[$dbuse]['pass']) or die ($this->db_error('Connection error'));
+						
+						}
 					}
+					
+					if ($this->isPDO){
+						return $connect;
+					}else{
+
+						if ($connect){
+					
+							if ($CONFIG[$this->keyconfig]['app_status'] == 'Production'){
+								@mysqli_select_db(trim($dbConfig[$dbuse]['name']), $connect) or die ($this->db_error('No Database Selected'));	
+							
+							}else{
+								mysqli_select_db(trim($dbConfig[$dbuse]['name']),$connect) or die ($this->db_error('No Database Selected'));
+								
+								// mysql_select_db('florakalbar', $connect) or die ($this->db_error('No Database Selected'));
+								
+							}
+							
+							$this->link = $connect;
+							return $connect;
+						
+						}else{
+						
+							return false;
+						}
+					}
+					
 				}
 				break;
 				
@@ -118,10 +133,10 @@ class Database
 			case 'mysql':
 				if ($CONFIG[$this->keyconfig]['app_status'] == 'Production'){
 						// if ($this->dbConfig[''])
-						$this->var_query = @mysql_query($data);
+						$this->var_query = @mysqli_query($data);
 
 				}else{
-						$this->var_query = mysql_query($data) or die ($this->error($data,$dbuse));
+						$this->var_query = mysqli_query($data) or die ($this->error($data,$dbuse));
 				}
 				break;
 			
@@ -152,7 +167,7 @@ class Database
 				if ($loop){
 					if ($this->num_rows($data,$dbuse)){
 
-						while ($data = mysql_fetch_assoc($this->var_result)){
+						while ($data = mysqli_fetch_assoc($this->var_result)){
 								$dataArray[] = $data;
 						}
 						
@@ -162,7 +177,7 @@ class Database
 					}
 				}else{
 					
-					$dataArray = mysql_fetch_assoc($this->var_result);
+					$dataArray = mysqli_fetch_assoc($this->var_result);
 					
 					return $dataArray;
 				}
@@ -177,7 +192,7 @@ class Database
 
 	function escape_string($data)
 	{
-		return mysql_real_escape_string($data);
+		return mysqli_real_escape_string($data);
 	}
         
         /* fungsi yang digunakan untuk execute query pada oracle secara otomatis akan di commit
@@ -190,14 +205,14 @@ class Database
 	{
 		$this->var_result = $data;
 		
-		return mysql_fetch_field($this->var_result);
+		return mysqli_fetch_field($this->var_result);
 	}
 	
 	public function num_rows($data=false,$dbuse)
 	{
 		if (!$data) return false;
 		$result = $this->query($data,$dbuse) or die ($this->error($data));
-		$numRec = mysql_num_rows($result);
+		$numRec = mysqli_num_rows($result);
 		return $result;
 	}
 	
@@ -220,7 +235,7 @@ class Database
 		switch ($dbConfig[0]['server'])
 		{
 			case 'mysql':
-				return mysql_close($this->link);
+				return mysqli_close($this->link);
 				break;
 		   
 		}
@@ -229,12 +244,12 @@ class Database
 	
 	public function free_result($result)
 	{
-		return mysql_free_result($result);
+		return mysqli_free_result($result);
 	}
 	
 	public function real_escape_string($data)
 	{
-		return mysql_real_escape_string($data);
+		return mysqli_real_escape_string($data);
 	}
 	
 	public function error($data,$dbuse)
@@ -251,7 +266,7 @@ class Database
 			switch ($dbConfig[$dbuse]['server'])
 			{
 				case 'mysql':
-					return mysql_error($this->link);
+					return mysqli_error($this->link);
 					break;
 				
 			}
@@ -283,7 +298,7 @@ class Database
 			// $this->link = $this->open_connection(0);
 		// }
 		
-		// return mysql_autocommit($this->link, false);
+		// return mysqli_autocommit($this->link, false);
 		
 	}
 	
