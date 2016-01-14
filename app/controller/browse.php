@@ -44,7 +44,7 @@ class browse extends Controller {
     function dataLocation(){
         global $CONFIG;
         //Get all data taxon
-        /**
+        /*
         $location = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataLocation');
         if(empty($location)){
             $this->view->assign('noData','empty');
@@ -53,14 +53,14 @@ class browse extends Controller {
             $this->view->assign('noData','data existed');
         }
         $this->view->assign('data',$location->result);
-        **/
+        */
         return $this->loadView('browse/dataLocation');
     }
 
     function dataPerson(){
         global $CONFIG;
         //Get all data taxon
-        /**
+        /*
         $person = jsDecode($CONFIG['default']['app_url'].'services/taxon/getDataPerson');
         if(empty($person)){
             $this->view->assign('noData','empty');
@@ -69,7 +69,7 @@ class browse extends Controller {
             $this->view->assign('noData','data existed');
         }
         $this->view->assign('data',$person->result);
-        **/
+        */
         return $this->loadView('browse/dataPerson');
     }
     
@@ -139,7 +139,7 @@ class browse extends Controller {
         //get all observations from indiv selected
         $indivObs = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/dataObsIndiv/?id='.$indivID);
         
-        /**
+        /*
         //get list enum habit
         $habit_enum = $this->insertonebyone->get_enum('obs','habit');
         $this->view->assign('habit_enum', $habit_enum);
@@ -156,7 +156,7 @@ class browse extends Controller {
         $confid_enum = $this->insertonebyone->get_enum('det','confid');
         $this->view->assign('confid_enum', $confid_enum);
         
-        **/
+        */
         if(empty($indivDetail)){
             $this->view->assign('noData','empty');
         }
@@ -172,6 +172,11 @@ class browse extends Controller {
         $ses_user = $this->isUserOnline();
         $this->view->assign('user', $ses_user); 
     	return $this->loadView('browse/indivDetail');
+    }
+
+    function qrCode()
+    {
+        generateQRCode('PHP QR Code');
     }
 }
 

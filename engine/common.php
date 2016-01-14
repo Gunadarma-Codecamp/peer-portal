@@ -627,4 +627,13 @@ function formatSizeUnits($bytes){
     return $bytes;
 }
 
+function generateQRCode($data)
+{
+
+	require_once LIBS."phpqrcode/qrlib.php";
+
+	QRcode::png($data);
+
+}
+
 ?>
