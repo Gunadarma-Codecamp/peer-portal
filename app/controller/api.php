@@ -47,6 +47,12 @@ class api extends Controller {
 
     	
     }
+
+    function mpdf()
+    {
+    	$html = "<h1>testing</h1>";
+    	mpdf($html);
+    }
 }
 
 ?>
