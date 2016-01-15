@@ -18,15 +18,23 @@ class picture_book extends Controller {
 	{
         $this->models = $this->loadModel('contentHelper');
 	}
-	
-	function template_cover(){
 
+	function index()
+	{
 		
+    }
+	
+	function template_cover()
+	{
 		return $this->loadView('picture_book/cover');
     }
 
     function template_content(){
 		return $this->loadView('picture_book/content');
+    }
+
+    function template_poster(){
+		return $this->loadView('picture_book/poster');
     }
 
     function list_picture(){
