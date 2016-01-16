@@ -636,10 +636,10 @@ function generateQRCode($data)
 
 }
 
-function mpdf($html)
+function mpdf($html,$size)
 {
 	require_once LIBS."mpdf/mpdf.php";
-	$mpdf=new mPDF('c'); 
+	$mpdf=new mPDF('c',$size,0,'',5,5,5,5,5,5,5); 
 
 	$mpdf->WriteHTML($html);
 	$mpdf->Output();
