@@ -1,32 +1,53 @@
 <html>
 <body>
-	<div style="width: 1684px; height: 2384px; font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 45px; border: 1px solid #111; border-top: 20px solid #00ADBB;">
-	<h1 style="margin:65px 495px 30px 495px; font-size: 75px; color: #5A5A5A;">FLORA <span style="color: #00ADBB;">INDONESIA</span></h1>
-	<h1 style="margin:0 55px 65px 55px; font-size: 55px; color: #5A5A5A;">Citizen Science Solution for National Biodiversity Data Needs</h1>
+	<div style=" font-family: 'Trebuchet MS', Helvetica, sans-serif; font-size: 35px; border-top: 20px solid #00ADBB;">
+	<h3 style="text-align:center">FLORA <span style="color: #00ADBB;">INDONESIA</span></h3>
+	<h3 style="margin:0 55px 65px 55px; font-size: 26px; color: #5A5A5A;">Citizen Science Solution for National Biodiversity Data Needs</h3>
 
-	<div style="text-align:center; margin-bottom: 200px;">
-		<i><p style="margin: 5px;">Dracaena fragrans (L.) Ker Gawl</p></i>
-		<p style="margin: 5px;">Cagar Alam Lho Fat Pun Fie</p>
-		<p style="margin: 5px;">Yoga Budihandoko</p>
+	<div style="text-align:center; margin-bottom: 20px;">
+		<i><p style="margin: 3px;">{$dataku[0]['gen']}</p></i>
+		<p style="margin: 3px;">{$dataku[0]['locn']}</p>
+		<p style="margin: 3px;">{$dataku[0]['name']}</p>
 	</div>
+	</div>
+	<table style="margin:0; padding:0; width:80%" cellspacing="0" cellpadding="0" align="center">
+	  <tr>
+	    <td colspan="2" rowspan="2"><img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[0]['md5sum']}.500px.jpg"  height="210"></td>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[2]['md5sum']}.100px.jpg"  height="80"></td>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[3]['md5sum']}.100px.jpg" height="80"></td>
+	  </tr>
 
-	<div style="width:1484px; margin-left: 100px; background-color: #111;">
+	  <tr>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[4]['md5sum']}.100px.jpg" height="80"></td>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[5]['md5sum']}.100px.jpg" height="80"></td>
+	  </tr>
+	  <tr>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[6]['md5sum']}.100px.jpg" height="80"></td>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[7]['md5sum']}.100px.jpg" height="80"></td>
+	    <td colspan="2" rowspan="2"><img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[1]['md5sum']}.500px.jpg" height="210"></td>
+	  </tr>
+	  <tr>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[8]['md5sum']}.100px.jpg" height="80"></td>
+	    <td><img src="{$peerkalbar_domain}public_assets/img/100px/{$dataku[9]['md5sum']}.100px.jpg" height="80"></td>
+	  </tr>
+	</table>
+	<!-- <div style="width:1484px; margin-left: 100px; background-color: #111;">
 		<div style="width: 50%; float:left;">
-			<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 		</div>
 		<div style="width: 50%; float:left;">
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 			<div style="clear: both;"></div>
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 		</div>
 		<div style="clear: both;"></div>
@@ -34,26 +55,27 @@
 	<div style="width:1484px; margin-left: 100px; background-color: #111;">
 		<div style="width: 50%; float:left;">
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 			<div style="clear: both;"></div>
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 			<div style="width: 50%; float:left;">
-				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+				<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 			</div>
 		</div>
 		<div style="width: 50%; float:left;">
-			<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/1000px/00cdd0b34d22a286ebd167ce752698c4.1000px.jpg" >
 		</div>
 		<div style="clear: both;"></div>
-	</div>
+	</div> -->
+	<p>Joint Research:</p>
 	
-	<div style="margin-left: 40px; margin-top: 300px; margin-bottom: 40px;">
+<!-- 	<div style="margin-left: 40px; margin-top: 300px; margin-bottom: 40px;">
 		<p>Joint Research:</p>
 		<div style="height: 100px;float: left;">
 			<img src="{$basedomain}assets/img/logo/gundar-logo.png" style="max-height: 100%; max-width: 100%;" />
@@ -65,11 +87,17 @@
 			<img src="{$basedomain}assets/img/logo/aa-logo.png" style="max-height: 100%; max-width: 100%;" />
 		</div>
 		<div style="clear: both;"></div>
-	</div>
-
+	</div> -->
+<table>
+<tr>
+	<td><img src="{$basedomain}assets/img/logo/gundar-logo.png" style="max-height: 100%; max-width: 100%;" /></td>
+	<td><img src="{$basedomain}assets/img/logo/kehati-logo.jpg" style="max-height: 100%; max-width: 100%;" /></td>
+	<td><img src="{$basedomain}assets/img/logo/aa-logo.png" style="max-height: 100%; max-width: 100%;" /></td>
+</tr>
+</table>
 	<div style="clear: both;"></div>
 	<p style="text-align: center; font-size: 11px; margin-top: 20px;">&copy;Copyright 2015 - Flora Indonesia</p>
-	</div>
+	
 </body>
 </html>
 

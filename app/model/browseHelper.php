@@ -387,6 +387,61 @@ class browseHelper extends Database {
             }
             else{return false;}                
     }
+
+    function ambildataImg(){
+        $sql = "SELECT * FROM peerkalbar_img ";
+        $res = $this->fetch($sql,1);
+        return $res;
+    }
+
+    function tbhPoster($data){
+        foreach ($data as $value) {
+            $dataImg= explode('-', $value);
+            $IdIndiv = $dataImg[1];
+            $IdPerson = $dataImg[2];
+            $md5sum = $dataImg[3];
+            $gen = $dataImg[4];
+            $lokasi = $dataImg[5];
+            $nama = $dataImg[6];
+            $sql = "INSERT into poster set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption=0, gen='$gen', locn='$lokasi', name='$nama' ";
+            $this->query($sql,0);
+        }
+        $sql2 = "SELECT * from `poster` ";
+        $res2 = $this->fetch($sql2,1);       
+        return $res2;
+    }
+    function tbhPicture($data){
+        foreach ($data as $value) {
+            $dataImg= explode('-', $value);
+            $IdIndiv = $dataImg[1];
+            $IdPerson = $dataImg[2];
+            $md5sum = $dataImg[3];
+            $gen = $dataImg[4];
+            $lokasi = $dataImg[5];
+            $nama = $dataImg[6];
+            $sql = "INSERT into picture set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption=0, gen='$gen', locn='$lokasi', name='$nama' ";
+            $this->query($sql,0);
+        }
+        $sql2 = "SELECT * from `picture` ";
+        $res2 = $this->fetch($sql2,1);       
+        return $res2;
+        // foreach ($data as $value) {
+        //     $dataImg= explode('-', $value);
+        //     $IdIndiv = $dataImg[1];
+        //     $IdPerson = $dataImg[2];
+        //     $md5sum = $dataImg[3];
+        //     // $res_c = $this->query("SELECT indiv_id from picture where indiv_id='$IdIndiv' ",0);
+        //     // if (mysqli_num_rows($res_c)!==0) continue;
+        //     $sql = "INSERT into picture set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption=0";
+        //     $res = $this->query($sql,0);
+        // }
+    }
+
+    function cetakPoster(){
+        
+
+
+    }
 	
 }
 ?>
