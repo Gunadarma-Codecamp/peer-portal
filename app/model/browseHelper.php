@@ -410,21 +410,67 @@ class browseHelper extends Database {
         $res2 = $this->fetch($sql2,1);       
         return $res2;
     }
-    function tbhPicture($data){
+
+  function tbhDataPic($data){
+        $arrImg = null;
+        $IdIndiv = null;
+        $IdPerson = null;
+        $IdPerson = null;
+        $gen = null;
+        $lokasi = null;
+        $nama = null;
         foreach ($data as $value) {
             $dataImg= explode('-', $value);
             $IdIndiv = $dataImg[1];
             $IdPerson = $dataImg[2];
-            $md5sum = $dataImg[3];
+            $arrImg .= $dataImg[3]."-";
             $gen = $dataImg[4];
             $lokasi = $dataImg[5];
             $nama = $dataImg[6];
-            $sql = "INSERT into picture set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption=0, gen='$gen', locn='$lokasi', name='$nama' ";
+        }
+        $res = $this->fetch("SELECT indiv_id from picture where indiv_id='$IdIndiv' ",1);
+        if($res[indiv_id]!=="")
+        {
+            $sql = "INSERT into picture set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption='$arrImg', img_rand='$arrImg', gen='$gen', locn='$lokasi', name='$nama' ";
             $this->query($sql,0);
         }
+        else
+        {
+            $sql = "UPDATE picture set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption='$arrImg', img_rand='$arrImg', gen='$gen', locn='$lokasi', name='$nama' where indiv_id='$IdIndiv' ";
+            $this->query($sql,0);
+        }
+
+    }
+    function tbhPicture($data){
+        $arr_hsl = array();
+        // foreach ($data as $value) {
+        //     $dataImg= explode('-', $value);
+        //     $IdIndiv = $dataImg[1];
+        //     $IdPerson = $dataImg[2];
+        //     $md5sum = $dataImg[3];
+        //     $gen = $dataImg[4];
+        //     $lokasi = $dataImg[5];
+        //     $nama = $dataImg[6];
+        //     $sql = "INSERT into picture set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption=0, gen='$gen', locn='$lokasi', name='$nama' ";
+        //     $this->query($sql,0);
+        // }
+        $no = 0;
         $sql2 = "SELECT * from `picture` ";
-        $res2 = $this->fetch($sql2,1);       
-        return $res2;
+        $res2 = $this->fetch($sql2,1); 
+        foreach ($res2 as $value) {
+            $arr_hsl[$no]['indiv_id'] = $value[indiv_id];
+            $arr_hsl[$no]['person_id'] = $value[person_id];
+            $arr_hsl[$no]['caption'] = $value[caption];
+            $arr_hsl[$no]['gen'] = $value[gen];
+            $arr_hsl[$no]['locn'] = $value[locn];
+            $arr_hsl[$no]['name'] = $value[name];
+            $arr_hsl[$no]['md5sum'] = explode("-",$value[img_rand]);
+            $no++;
+        }
+        // $img_rnd = explode("-",$res2[img_rand]);
+        // $arr_hsl = $res2;
+        // $this->query("DELETE from `picture` ",0);      
+        return $arr_hsl;
         // foreach ($data as $value) {
         //     $dataImg= explode('-', $value);
         //     $IdIndiv = $dataImg[1];
@@ -436,7 +482,6 @@ class browseHelper extends Database {
         //     $res = $this->query($sql,0);
         // }
     }
-
     function cetakPoster(){
         
 

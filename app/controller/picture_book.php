@@ -75,6 +75,11 @@ class picture_book extends Controller {
 	{
 	    
 	    	$arrayImg = $_POST['idImg'];
+	    	$getid = explode('/', key($_GET));
+	    	if(count($arrayImg)>10) {
+	    		echo "Jumlah Specimen yang dapat dipilih maksimum 10 buah";
+	    	}
+	    	else{
 	    	// pr($arrayImg);    	
 	    	$getData = $this->models->tbhPoster($arrayImg);
 	    	$this->view->assign('dataku', $getData);
@@ -82,25 +87,27 @@ class picture_book extends Controller {
 	    	ob_clean();
 	    	ob_end_clean();
 			mpdf($html,'A4');
+		}
 	}
 
 	function tbhPicture()
 	{
 	    if($_POST["pilih_lagi"]) {
 	    	$arrayImg = $_POST['idImg'];
-	    	$this->models->tbhPicture($arrayImg);
+	    	$this->models->tbhDataPic($arrayImg);
 	    	return $this->loadView('browse/dataIndiv');
 	    		
 	    }
 	    else{
-	    	$arrayImg = $_POST['idImg'];
+	  //   	$arrayImg = $_POST['idImg'];
 			$getData = $this->models->tbhPicture($arrayImg);
 	    	$this->view->assign('dataku', $getData);
 	    	$html = $this->loadView('picture_book/content');
-			mpdf($html,'A4-L');
-			
+			mpdf($html,'A5');
+
+			// pr($getData);
 	    }
-	}
+}
 
 }
 

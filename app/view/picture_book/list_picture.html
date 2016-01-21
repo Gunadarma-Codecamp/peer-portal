@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                     <p> Pilih Caption</p>
+                     <p>{$pesan[0]}</p>
                     {foreach $data as $key => $val}
                     <div class="col-md-3" style="margin-bottom: 10px;">
 
@@ -52,7 +52,7 @@
                 </form>
                 </div>
               <div class="tab-pane" id="content">
-                    <form method="POST" action="{$basedomain}/picture_book/tbhPicture">
+                    <form method="POST" action="{$basedomain}picture_book/tbhPicture">
                     <div class="row">
                         <div class="col-md-12">
                             <p id="totalPicture" style="font-style: italic;" class="pull-left"></p>

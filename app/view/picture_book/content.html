@@ -1,35 +1,53 @@
 <html>
 <body>
+	<h4 style="padding: 15px 15px 15px 40px; background-color: #00ADBB; color: #FFF;"> <p align="center">Biodiversity Informatics in Indonesia</p></h4>
+	<h3 style="margin:50px 40px; font-size: 40px; color: #5A5A5A;"><p align="center">{$dataku[0]['gen']}</span></p></h3>
+	<img src="{$basedomain}assets/img/cover_booklet_front.jpg" style="max-width: 100%;">
+	<h1 style="font-size: 40px; color: #5A5A5A;"><p align="center">FLORA <span style="color: #00ADBB;">INDONESIA</span></p></h1>
+		<h4 style="color: #00ADBB;"> <p align="center">Citizen Science Solution for National Biodiversity Data Needs</p></h4>
+
+	<table>
+		<tr>
+			<td><img src="{$basedomain}assets/img/logo/gundar-logo.png" style="max-height: 20%; max-width: 20%;" /></td>
+			<td><img src="{$basedomain}assets/img/logo/kehati-logo.jpg" style="max-height: 20%; max-width: 20%;" /></td>
+			<td><img src="{$basedomain}assets/img/logo/aa-logo.png" style="max-height: 20%; max-width: 20%;" /></td>
+			<td><img src="{$basedomain}assets/img/logo/usaid.png" style="max-height: 100%; max-width: 100%;" />
+		</div></td>
+
+		</tr>
+	</table>
+	<div style="page-break-before:always;"></div>
+{foreach $dataku as $value}
 	<div style="vertical-align:middle; horizontal-align:middle; width: 900px; height: 595px; padding: 0 10px 10px; font-family: 'Trebuchet MS', Helvetica, sans-serif; border: 1px solid #111;">
 
-	<div style="width: 50%; float:left;">
+	<div style="width: 100%; float:left;">
 		<h4 style="padding: 5px 10px; margin:0; background-color: #00ADBB; color: #FFF; float: right;">1</h4>
 		<div style="clear: both;"></div>
 
-		<i><p style="margin: 3px;">{$dataku[0]['gen']}</p></i>
-		<p style="margin: 3px;">{$dataku[0]['locn']}</p>
-		<p style="margin: 3px;">{$dataku[0]['name']}</p>
+		<i><p style="margin: 3px;">{$value['gen']}</p></i>
+		<p style="margin: 3px;">{$value['locn']}</p>
+		<p style="margin: 3px;">{$value['name']}</p>
 		
 		<div style="float: left; width: 70%; background-color: #00ADBB; color: #FFF;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[0]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][0]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="float: left; width: 25%; background-color: #00ADBB; color: #FFF; margin: 0 10px 5px 10px;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[2]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][2]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="float: left; width: 25%; background-color: #00ADBB; color: #FFF; margin: 5px 10px 0 10px;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[3]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][3]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="clear: both;"></div>
 
 		<div style="float: left; width: 25%; background-color: #00ADBB; color: #FFF; margin: 10px 5px 0 0;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[4]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][4]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="float: left; width: 25%; background-color: #00ADBB; color: #FFF; margin: 10px 0 0 5px;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[5]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][5]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="clear: both;"></div>
@@ -52,7 +70,9 @@
     <td><img src="{$peerkalbar_domain}public_assets/img/500px/00cdd0b34d22a286ebd167ce752698c4.500px.jpg" style="max-width: 25%;"></td>
   </tr>
 </table> -->
-	<div style="width: 50%; float:left;">
+<div style="page-break-before:always;"></div>
+
+	<div style="width: 100%; float:left;">
 		<h4 style="padding: 5px 10px; margin:0; background-color: #00ADBB; color: #FFF; float: right;">2</h4>
 		<div style="clear: both;"></div>
 
@@ -61,25 +81,25 @@
 		<p style="margin: 3px;">{$dataku[0]['name']}</p>
 		
 		<div style="float: right; width: 25%; background-color: #00ADBB; color: #FFF; margin: 0 0 10px 5px;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[1]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][1]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="float: right; width: 25%; background-color: #00ADBB; color: #FFF; margin: 0 5px 10px 0;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[6]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][6]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="clear: both;"></div>
 
 		<div style="float: right; width: 70%; background-color: #00ADBB; color: #FFF;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[7]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][1]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="float: left; width: 25%; background-color: #00ADBB; color: #FFF; margin: 0 10px 5px 10px;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[8]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][7]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 		<div style="float: left; width: 25%; background-color: #00ADBB; color: #FFF; margin: 5px 10px 0 10px;">
-			<img src="{$peerkalbar_domain}public_assets/img/500px/{$dataku[9]['md5sum']}.500px.jpg" style="max-width: 100%;">
+			<img src="{$peerkalbar_domain}public_assets/img/500px/{$value['md5sum'][8]}.500px.jpg" style="max-width: 100%;">
 		</div>
 
 
@@ -87,7 +107,7 @@
 		<p style="text-align: center; font-size: 11px; margin-top: 20px;">&copy;Copyright 2015 - Flora Indonesia</p>
 		</div>
 	</div>
-
+{/foreach}
 </body>
 </html>
 
