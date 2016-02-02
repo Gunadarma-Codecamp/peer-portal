@@ -1,0 +1,52 @@
+
+<div class="container flora-container">
+    <div class="flora-content">
+
+    <!-- <div>Jumlah Total Specimen : {$indiv->dataTotal}</div>
+    <div>Specimen Unik: {$taxon->dataTotal}</div>     
+    <div>jumlah Person : {$person->dataTotal}</div>    -->
+<center>
+    <H1> STATISTIK  </H1> 
+    
+    </center>
+    <center>
+    <div id="canvas-holder">
+      <canvas id="chart-area" width="300" height="300"/>
+    </div>
+    </center>
+
+<script>
+
+    var pieData = [
+    
+        {
+          value: {$indiv->dataTotal},
+          color:"#F7464A",
+          highlight: "#FF5A5E",
+          label: "Jumlah Total Specimen"
+        },
+        {
+          value: {$taxon->dataTotal},
+          color: "#46BFBD",
+          highlight: "#5AD3D1",
+          label: "Specimen Unik"
+        },
+        {
+          value: {$person->dataTotal},
+          color: "#FDB45C",
+          highlight: "#FFC870",
+          label: "jumlah Person"
+        },
+        
+
+      ];
+
+      window.onload = function(){
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myPie = new Chart(ctx).Pie(pieData);
+      };
+  </script>
+
+    </div>    
+</div>
+
