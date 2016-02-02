@@ -3,8 +3,6 @@
         <!--<h3>Species Name</h3>-->
         <ul class="nav nav-tabs" role="tablist" id="indivDetail-tabs">
           <li class="active"><a href="#overview" role="tab" data-toggle="tab">Overview</a></li>
-          <li><a href="#obs" role="tab" data-toggle="tab">Observation</a></li>
-          <li><a href="#det" role="tab" data-toggle="tab">Determinant</a></li>
           <li><a href="#img" role="tab" data-toggle="tab">Images</a></li>
         </ul>
     </div>
@@ -28,8 +26,8 @@
                     <p class="label_detail" style="margin: 0 0 0;">Tag</p>
                     <p>{$getIndiv->tag}</p>
                 </div>
-                <div class="col-md-8">
-                    <h3>Location</h3>
+                <div class="col-md-6">
+                    <h3>Notes</h3>
                     <!--<div class="row">
                         <div class="col-md-2"><p class="label_detail">Longitude</p></div>
                         <div class="col-md-10"><p>{$getIndiv->longitude}</p></div>
@@ -40,31 +38,104 @@
                     </div>-->
                     <div class="row">
                         <div class="col-md-2"><p class="label_detail">Elevation</p></div>
-                        <div class="col-md-10"><p>{$getIndiv->elev}</p></div>
+                       <div class="col-md-10"><div itemscope itemtype ="http://rs.tdwg.org/dwc/terms/verbatimElevation"><p itemprop="verbatimElevation">{$getIndiv->elev}</p></div></div>
                     </div>
+<!--Microdata Elevation didapatkan dari Darwin Core yang tipenya beralamat di URL http://rs.tdwg.org/dwc/terms/verbatimElevation. Microdata ini memiliki property/nama "verbatimElevation". Elevation adalah ketinggian rata-rata suatu tanaman berada. Contoh penulisan Elevation misalnya "100-200m".-->
+
                     <div class="row">
                         <div class="col-md-2"><p class="label_detail">Geomorph</p></div>
                         <div class="col-md-10"><p>{$getIndiv->geomorph}</p></div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-2"><p class="label_detail">Locality</p></div>
-                        <div class="col-md-10"><p>{$getIndiv->locality}</p></div>
+                        <div class="col-md-10"><div itemscope itemtype ="http://rs.tdwg.org/dwc/terms/locality"><p itemprop="locality">{$getIndiv->locality}</p></div></div>
                     </div>
+<!--Microdata Locality didapatkan dari Darwin Core yang tipenya beralamat di URL http://rs.tdwg.org/dwc/terms/locality. Microdata ini memiliki property/nama "locality". Locality adalah lokasi spesifik habitat suatu tanaman. Contoh penulisan Locality misalnya "Singkawang, 145 km utara Pontianak, Kalimantan Barat".-->
+
                     <div class="row">
                         <div class="col-md-2"><p class="label_detail">County</p></div>
-                        <div class="col-md-10"><p>{$getIndiv->county}</p></div>
+      <div class="col-md-10"><div itemscope itemtype ="http://rs.tdwg.org/dwc/terms/county"><p itemprop="county">{$getIndiv->county}</p></div></div>
                     </div>
+<!--Microdata County didapatkan dari Darwin Core yang tipenya beralamat di URL http://rs.tdwg.org/dwc/terms/county. Microdata ini memiliki property/nama "county". County adalah letak Kabupaten tempat habitat suatu tanaman. Kabupaten adalah wilayah administratif yang ruang lingkupnya lebih kecil dari Provinsi. Contoh penulisan County misalnya "Pontianak".-->
+
                     <div class="row">
                         <div class="col-md-2"><p class="label_detail">Province</p></div>
-                        <div class="col-md-10"><p>{$getIndiv->province}</p></div>
+                        <div class="col-md-10"><div itemscope itemtype ="http://rs.tdwg.org/dwc/terms/stateProvince"><p itemprop="stateProvince">{$getIndiv->province}</p></div></div>
                     </div>
+<!--Microdata Province didapatkan dari Darwin Core yang tipenya beralamat di URL http://rs.tdwg.org/dwc/terms/stateProvince. Microdata ini memiliki property/nama "stateProvince". Province adalah letak Provinsi tempat habitat suatu tanaman. Contoh penulisan Province misalnya "Kalimantan Barat".-->
+
                     <div class="row">
                         <div class="col-md-2"><p class="label_detail">Island</p></div>
-                        <div class="col-md-10"><p>{$getIndiv->island}</p></div>
+        <div class="col-md-10"><div itemscope itemtype ="http://rs.tdwg.org/dwc/terms/island"><p itemprop="island">{$getIndiv->island}</p></div></div>
                     </div>
+<!--Microdata Island didapatkan dari Darwin Core yang tipenya beralamat di URL http://rs.tdwg.org/dwc/terms/island. Microdata ini memiliki property/nama "island". Island adalah nama pulau tempat habitat suatu tanaman. Contoh penulisan Island misalnya "Kalimantan".-->
+
                     <div class="row">
                         <div class="col-md-2"><p class="label_detail">Country</p></div>
-                        <div class="col-md-10"><p>{$getIndiv->country}</p></div>
+            <div class="col-md-10"><div itemscope itemtype ="http://rs.tdwg.org/dwc/terms/country"><p itemprop="country">{$getIndiv->country}</p></div></div>
+                    </div>
+<!--Microdata Country didapatkan dari Darwin Core yang tipenya beralamat di URL http://rs.tdwg.org/dwc/terms/country. Microdata ini memiliki property/nama "country". Country adalah letak Negara tempat habitat suatu tanaman. Contoh penulisan Country misalnya "Indonesia".-->
+
+                    {foreach $obs as $getObs}
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Date</p></div>
+                        <div class="col-md-10"><p>{$getObs->date}</p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Microhab</p></div>
+                        <div class="col-md-10"><p>{$getObs->microhab}</p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Habit</p></div>
+                        <div class="col-md-10"><p>{$getObs->habit}</p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">dbh</p></div>
+                        <div class="col-md-10"><p>{$getObs->dbh}</p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Height</p></div>
+                        <div class="col-md-10"><p>{$getObs->height}</p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Bud</p></div>
+  <div class="col-md-10"><p><span class="glyphicon glyphicon-{if $getObs->bud=='yes'}ok{else}remove{/if}"></span></p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Flower</p></div>
+                        <div class="col-md-10"><p><span class="glyphicon glyphicon-{if $getObs->flower=='yes'}ok{else}remove{/if}"></span></p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Fruit</p></div>
+                        <div class="col-md-10"><p><span class="glyphicon glyphicon-{if $getObs->fruit=='yes'}ok{else}remove{/if}"></span></p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Localname</p></div>
+                        <div class="col-md-10"><p>{$getObs->localname}</p></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"><p class="label_detail">Notes</p></div>
+                        <div class="col-md-10"><div itemscope itemtype ="http://rs.tdwg.org/dwc/terms/fieldNotes"><p itemprop="fieldNotes">{$getObs->notes}</p></div></div>
+                    </div>
+<!--Microdata Field Notes (catatan) didapatkan dari Darwin Core yang tipenya beralamat di URL http://rs.tdwg.org/dwc/terms/fieldNotes. Microdata ini memiliki property/nama "fieldNotes". Field Notes adalah indikator keberadaan atau referensi terkait dengan suatu tanaman. Contoh penulisan Field Notes misalnya "Catatan tersedia di pustaka/library Grinnell-Miller".-->
+
+                    {/foreach}
+                </div>
+
+                <div class="col-md-2">
+                    <h3>QR Code</h3>
+                    <div class="row">
+      <a type="button" class="button" href="http://localhost/peer-portal/browse/qrcode/?id={$indivID}"><button>Generate QR Code</button></a>
                     </div>
                 </div>
                 {/foreach}
@@ -72,84 +143,12 @@
         </div>
       </div><!-- END TAB OVERVIEW-->
       
-      <div class="tab-pane" id="obs">
-        <div class="flora-content">
-            <table id="table-obs" class="table dtTable table-striped table-bordered flora-table table-curved" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>Creator</th>
-                        <th>Date</th>
-                        <th>Microhab</th>
-                        <th>Habit</th>
-                        <th>dbh</th>
-                        <th>Height</th>
-                        <th>Bud</th>
-                        <th>Flower</th>
-                        <th>Fruit</th>
-                        <th>Localname</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-         
-                <tbody>
-                    {foreach $obs as $getObs}
-                    <tr>
-                        <td>{$getObs->name}</td>
-                        <td>{$getObs->date}</td>
-                        <td>{$getObs->microhab}</td>
-                        <td>{$getObs->habit}</td>
-                        <td>{$getObs->dbh}</td>
-                        <td>{$getObs->height}</td>
-                        <td class="text-center"><span class="glyphicon glyphicon-{if $getObs->bud=='yes'}ok{else}remove{/if}"></span></td>
-                        <td class="text-center"><span class="glyphicon glyphicon-{if $getObs->flower=='yes'}ok{else}remove{/if}"></span></td>
-                        <td class="text-center"><span class="glyphicon glyphicon-{if $getObs->fruit=='yes'}ok{else}remove{/if}"></span></td>
-                        <td>{$getObs->localname}</td>
-                        <td>{$getObs->notes}</td>
-
-                    </tr>
-                    {/foreach}
-                </tbody>
-            </table>
-            </div>
-      </div><!-- END TAB OBS-->
-      
-      <div class="tab-pane" id="det">
-        <div class="flora-content">
-            <table id="table-det" class="table dtTable table-striped table-bordered flora-table table-curved" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>Creator</th>
-                        <th>Date</th>
-                        <th>Taxon</th>
-                        <th>Confid</th>
-                        <th>Using</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-         
-                <tbody>
-                    {foreach $det as $getDet}
-                    <tr>
-                        <td>{$getDet->name}</td>
-                        <td>{$getDet->det_date}</td>
-                        <td><i>{$getDet->sp},{$getDet->gen},{$getDet->fam}</i></td>
-                        <td>{$getDet->confid}</td>
-                        <td>{$getDet->using}</td>
-                        <td>{$getDet->notes}</td>
-
-                    </tr>
-                     {/foreach}
-                </tbody>
-            </table>
-        </div>
-      </div><!-- END TAB DET-->
-      
       <div class="tab-pane" id="img">
         <div class="flora-content">
             <div id="links">
                 {foreach $img as $getImg}
-                <a href="{$peerkalbar_domain}public_assets/img/500px/{$getImg->md5sum}.500px.jpg" title="{$getImg->plantpart}" data-gallery>
-                    <img src="{$peerkalbar_domain}public_assets/img/100px/{$getImg->md5sum}.100px.jpg" class="flora-gallery">
+            <a href="{$peerkalbar_domain}public_assets/img/500px/{$getImg->md5sum}.500px.jpg" title="{$getImg->plantpart}" data-gallery>
+                  <img src="{$peerkalbar_domain}public_assets/img/100px/{$getImg->md5sum}.100px.jpg" class="flora-gallery">
                 </a>
                 {/foreach}
             </div>
@@ -170,6 +169,7 @@
     <a class="close">×</a>
     <a class="play-pause"></a>
     <ol class="indicator"></ol>
+
     <!-- The modal dialog, which will be used to wrap the lightbox content -->
     <div class="modal fade">
         <div class="modal-dialog">
