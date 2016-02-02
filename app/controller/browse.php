@@ -75,6 +75,7 @@ class browse extends Controller {
     
     function dataIndiv(){
         global $CONFIG;
+        // pr($CONFIG);die;
         // $person = jsDecode($CONFIG['default']['peerkalbar_url'].'services/taxon/getDataIndiv');
         // if(empty($person)){
         //     $this->view->assign('noData','empty');
@@ -172,6 +173,12 @@ class browse extends Controller {
         $ses_user = $this->isUserOnline();
         $this->view->assign('user', $ses_user); 
     	return $this->loadView('browse/indivDetail');
+    }
+
+    function qrCode()
+    {
+        $id = $_GET['id'];
+        generateQRCode($CONFIG['default']['base_url'].'browse/indivDetail/?id='.$id);
     }
 }
 

@@ -627,4 +627,18 @@ function formatSizeUnits($bytes){
     return $bytes;
 }
 
+function generateQRCode($data)
+{
+	require_once LIBS."phpqrcode/qrlib.php";
+	QRcode::png($data);
+}
+function mpdf($html)
+{
+	require_once LIBS."mpdf/mpdf.php";
+	$mpdf=new mPDF('c'); 
+	$mpdf->WriteHTML($html);
+	$mpdf->Output();
+	exit;
+}
+
 ?>

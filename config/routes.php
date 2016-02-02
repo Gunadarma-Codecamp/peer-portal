@@ -16,6 +16,7 @@ $ROUTES = array(
                 'expedition',
                 'publication',
                 'activate',
-                'picture_book'               
+                'picture_book',
+                'integrasi'               
                 );
 ?>
