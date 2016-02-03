@@ -115,6 +115,8 @@ class picture_book extends Controller {
 	    }
 	    else{
 	  //   	$arrayImg = $_POST['idImg'];
+	    	$arrayImg = $_POST['idImg'];
+	    	$this->models->tbhDataPic($arrayImg);
 			$getData = $this->models->tbhPicture($arrayImg);
 	    	$this->view->assign('dataku', $getData);
 	    	$html = $this->loadView('picture_book/content');
