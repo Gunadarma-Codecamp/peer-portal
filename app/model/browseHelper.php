@@ -437,6 +437,7 @@ class browseHelper extends Database {
             $no++;
         }
         return $arr_hsl;
+        $this->query("DELETE FROM `poster` ",0);
     }
 
   function tbhDataPic($data){
@@ -510,6 +511,7 @@ class browseHelper extends Database {
         //     $sql = "INSERT into picture set indiv_id='$IdIndiv', md5sum='$md5sum', person_id = '$IdPerson', caption=0";
         //     $res = $this->query($sql,0);
         // }
+        $this->query("DELETE FROM `picture` ",0);
     }
     function tbhCaptionPB($data){
         $arrImg = null;
