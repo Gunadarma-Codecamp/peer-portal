@@ -176,7 +176,23 @@ class browse extends Controller {
 
     function qrCode()
     {
-        generateQRCode('PHP QR Code');
+        $id = $_GET['id'];
+        generateQRCode($CONFIG['default']['base_url'].'browse/indivDetail/?id='.$id);
+    }
+
+    function dataStat(){
+        global $CONFIG;
+        $person = jsDecode($CONFIG['default']['app_url'].'services/specimen/getAllPerson/1');
+        $this->view->assign('person',$person->result[0]);
+
+        $indiv = jsDecode($CONFIG['default']['app_url'].'services/specimen/getAllIndiv/1');
+        $this->view->assign('indiv',$indiv);
+
+        $taxon = jsDecode($CONFIG['default']['app_url'].'services/specimen/getAllIndivTaxon/1');
+        $this->view->assign('taxon',$taxon->result[0]);
+        // pr($taxon->result[0]);die;
+
+        return $this->loadView('browse/dataStat');
     }
 }
 
